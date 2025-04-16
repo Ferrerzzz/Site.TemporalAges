@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+.navbar-container {
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #d6d8e0, #bfc3cf);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  color: #000;
+  border-radius: 12px;
+  height: 70px; 
+  padding: 0 60px; 
+
+  }
+
+.nav-left img{
+    size: 30px;
+}
+
+  .nav-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 1.18em; 
+  }
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: block;
+    font-size: 1em; 
+  }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: #dcdde1; 
+  }
+
+.dropdown .nav-link::after {
+    content: " ▼";
+    font-size: 0.7em;
+    margin-left: 6px;
+    color: #333;
+  }
+.search-icon, .user-icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+.btn-jogue {
+  background-color: #f25c05;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.12em;
+}
+.video-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.video-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.video-overlay h1 {
+  font-size: 3em;
+  font-family: 'Impact', sans-serif;
+  margin: 0;
+}
+.video-overlay h2 {
+  font-size: 1.8em;
+  margin: 10px 0 0;
+  font-style: italic;
+}
+.video-overlay p {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 15px 0;
+}
+.video-overlay .btn-jogue-agora {
+  background-color: #f25c05;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
