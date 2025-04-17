@@ -10,7 +10,7 @@ body {
     font-family: Arial, sans-serif;
 }
 .navbar-container {
-  padding: 10px;
+  padding: 25px;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,25 +30,31 @@ body {
 
   }
 
-.nav-left img{
-    size: 30px;
+
+
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 1.18em; 
 }
 
-  .nav-link {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-size: 1.18em; 
-  }
-
-.nav-left, .nav-right {
+.nav-right {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
 }
 .dropdown {
   position: relative;
@@ -150,4 +156,68 @@ body {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.overwatch-promo {
+  display: flex;
+  align-items: center;
+  background-color: #c3d2fa; /* Azul escuro do Overwatch */
+  color: rgb(0, 0, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 60px;
+  width: 100%;
+  height: 70%;
+  margin: 0 auto;
+ 
+  gap: 50px;
+}
+
+.text-section {
+  padding-left: 50px;
+
+
+
+}
+
+.text-section h2 {
+  font-size: 2.8em;
+  font-weight: 800;;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.text-section p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+
+  width: 35em;
+  opacity: 0.9;
+}
+
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 35px;
+  background: #0044ff;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.video1-section {
+  height:500px;
+  width: 70%;
+  overflow: hidden;
+}
+
+.video1-section video {
+  width: 100%;
+  display: block;
 }
