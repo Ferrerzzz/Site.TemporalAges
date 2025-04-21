@@ -21,7 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, #d6d8e0, #bfc3cf);
+  background: #97d2da;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   color: #000;
   border-radius: 12px;
@@ -174,9 +174,6 @@ body {
 
 .text-section {
   padding-left: 50px;
-
-
-
 }
 
 .text-section h2 {
@@ -220,4 +217,62 @@ body {
 .video1-section video {
   width: 100%;
   display: block;
+}
+.Mapas {
+  display: flex;
+  align-items: center;
+  background-color: #527574;
+  color: rgb(0, 0, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 60px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 80px;
+  flex-wrap: wrap; /* Adicionado para responsividade */
+}
+
+.img-Mapas {
+  padding-left: 30px;
+  height:500px;
+  overflow: hidden;
+}
+
+.video-Mapas img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.text-Mapas {
+  flex: 1;
+  max-width: 600px;
+}
+
+.text-Mapas h2 {
+  font-size: 2.8em;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.text-Mapas p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 35px;
+  background: #0044ff;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
 }
