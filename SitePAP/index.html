@@ -36,21 +36,7 @@
     }
 
     // Função para alterar o conteúdo ao clicar nos botões
-    function mudarConteudo(tipo) {
-      const imgPersonagem = document.querySelector(".personagem-img");
-      const textoPersonagem = document.querySelector(".texto-personagem");
-
-      if (tipo === "principais") {
-        imgPersonagem.src = "gajo1-removebg-preview.png"; // Alterar para a imagem dos principais
-        textoPersonagem.innerHTML = "<h3>Personagens Principais</h3><p>Conheça os heróis principais da história. Eles são os protagonistas de Temporal Ages, com habilidades únicas e histórias fascinantes.</p>";
-      } else if (tipo === "npc") {
-        imgPersonagem.src = "anubis-removebg-preview.png"; // Alterar para a imagem dos NPCs
-        textoPersonagem.innerHTML = "<h3>NPCs</h3><p>Os NPCs são personagens não jogáveis que enriquecem o universo de Temporal Ages, oferecendo missões, informações e interações.</p>";
-      } else if (tipo === "boss") {
-        imgPersonagem.src = "boss.jpg"; // Alterar para a imagem dos bosses
-        textoPersonagem.innerHTML = "<h3>Bosses</h3><p>Os bosses são os maiores desafios de Temporal Ages. Enfrentá-los requer habilidade, estratégia e coragem.</p>";
-      }
-    }
+    
   </script>
 
   <div class="navbar-container">
@@ -158,25 +144,48 @@
     
 
   </div>
-
-    <div class="personagens">
-      <div class="personagem-info">
-        <div class="personagem-left">
-          <img class="personagem-img" src="gajo1-removebg-preview.png" alt="Personagens Principais" width="400">
-        </div>
-        <div class="personagem-right">
-          <h3>Personagens</h3>
-          <div class="personagem-botoes">
-            <button onclick="mudarConteudo('principais')">Personagens Principais</button>
-            <button onclick="mudarConteudo('npc')">NPCs</button>
-            <button onclick="mudarConteudo('boss')">Bosses</button>
-          </div>
-          <p class="texto-personagem">Conheça os heróis principais da história. Eles são os protagonistas de Temporal Ages, com habilidades únicas e histórias fascinantes.</p>
-          <button class="ver-todos">Ver Todos os Personagens</button>
-        </div>
-      </div>
+<div class="personagenssec">
+  <div class="container">
+    <div class="image-section">
+      <img id="heroImage" src="gajo1-removebg-preview.png" alt="Herói Principal">
     </div>
 
+    <div class="content-section">
+      <h1>Personagens</h1>
+      <div class="icons">
+        <button class="icon-btn" onclick="showContent('principais')">🛡️</button>
+        <button class="icon-btn" onclick="showContent('npcs')">💬</button>
+        <button class="icon-btn" onclick="showContent('bosses')">💀</button>
+      </div>
+      <div class="text-content" id="heroText">
+        <strong>Personagens Principais:</strong> <br><br>São os protagonistas de Temporal Ages. Cada um possui habilidades únicas e papel crucial na narrativa. Você joga com eles para mudar o destino do tempo.
+      </div>
+      <button class="cta-button">VER TODOS OS PERSONAGENS</button>
+    </div>
+  </div>
+</div>
+
+  <script>
+    function showContent(type) {
+      const content = {
+        principais: {
+          text: "<strong>Personagens Principais:</strong><br><br> São os protagonistas de Temporal Ages. Cada um possui habilidades únicas e papel crucial na narrativa. Você joga com eles para mudar o destino do tempo.",
+          img: "gajo1-removebg-preview.png"
+        },
+        npcs: {
+          text: "<strong>NPCs:</strong><br><br> Personagens secundários que ajudam (ou atrapalham) a tua jornada. Alguns fornecem missões, outros escondem segredos importantes.",
+          img: "anubis-removebg-preview.png"
+        },
+        bosses: {
+          text: "<strong>Bosses:</strong> <br><br>Inimigos poderosos que testam todas as tuas habilidades. Vencer um boss pode alterar drasticamente a linha temporal!",
+          img: "gajonovo.png"
+        }
+      };
+
+      document.getElementById("heroText").innerHTML = content[type].text;
+      document.getElementById("heroImage").src = content[type].img;
+    }
+  </script>
 
     <footer id="sobre">
       <div class="footer-container">
