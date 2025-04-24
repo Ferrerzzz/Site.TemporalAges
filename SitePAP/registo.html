@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Registo</title>
+  <link rel="stylesheet" href="registo-style.css">
+</head>
+<body>
+
+  <!-- Páginas (steps) -->
+  <div class="step active" id="step-1">
+    <h1>Temporal Ages</h1>
+    <label for="pais">País</label>
+    <select id="pais">
+      <option selected>Portugal</option>
+      <option>Brasil</option>
+      <option>Outro...</option>
+    </select>
+    <label for="data-nascimento">Data de nascimento</label>
+    <input type="date" id="data-nascimento" value="2000-12-12">
+    <p class="login">Já tem uma conta? <a href="#">Conecte-se</a></p>
+    <button onclick="nextStep()">Continuar</button>
+  </div>
+
+  <div class="step" id="step-2">
+    <h1>Temporal Ages</h1>
+    <h2>Qual é o seu nome?</h2>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" placeholder="Primeiro nome">
+    <label for="sobrenome">Sobrenome</label>
+    <input type="text" id="sobrenome" placeholder="Último nome">
+    <button onclick="nextStep()">Continuar</button>
+  </div>
+
+  <div class="step" id="step-3">
+    <h1>Temporal Ages</h1>
+    <h2>Identifique sua conta</h2>
+    <label for="email">E-mail da conta</label>
+    <input type="email" id="email" required>
+    <button onclick="nextStep()">Continuar</button>
+  </div>
+
+  <div class="step" id="step-4">
+    <h1>Temporal Ages</h1>
+    <h2>Defina sua senha</h2>
+    <p>Proteja sua conta e escolha uma senha forte.</p>
+    <label for="senha">Senha</label>
+    <input type="password" id="senha">
+    <button onclick="nextStep()">Continuar</button>
+  </div>
+
+  <div class="step" id="step-5">
+    <h1>Temporal Ages</h1>
+    <h2>Repetir Senha</h2>
+    <p>Confirme sua senha anterior.</p>
+    <label for="senha2">Confirmar Senha</label>
+    <input type="password" id="senha2">
+    <button onclick="nextStep()">Continuar</button>
+  </div>
+
+  <div class="step" id="step-6">
+    <h1>Temporal Ages</h1>
+    <h2>Crie a sua GameTag</h2>
+    <p>Este nome será sua identidade pública.</p>
+    <label for="battletag">Game Tag</label>
+    <input type="text" id="battletag" placeholder="Ex: Ferrerzzz">
+    <button onclick="nextStep()">Continuar</button>
+
+  </div>
+
+  <div class="step" id="step-7">
+    <h1>Tudo pronto!</h1>
+    <p>A seguinte conta foi criada:</p>
+    <div class="green">
+    <strong id="resumo-email"></strong>
+    </div>
+    <p>Para gerenciar definições adicionais, visite suas <a href="#">Configurações da Conta</a>.</p>
+    <button onclick="finalizar()">Finalizar</button>
+    
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 7;
+
+    function nextStep() {
+      if (currentStep === 3) {
+        const email = document.getElementById("email").value;
+        document.getElementById("resumo-email").textContent = email;
+      }
+
+      if (currentStep < totalSteps) {
+        document.getElementById(`step-${currentStep}`).classList.remove("active");
+        currentStep++;
+        updateDots();
+        document.getElementById(`step-${currentStep}`).classList.add("active");
+      }
+    }
+
+
+    function updateDots() {
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach(dot => {
+    dot.classList.remove("active");
+    if (parseInt(dot.getAttribute("data-step")) === currentStep) {
+      dot.classList.add("active");
+    }
+  });
+
+
+}
+
+function finalizar() {
+  const nome = document.getElementById("nome").value;
+  const sobrenome = document.getElementById("sobrenome").value;
+  const email = document.getElementById("email").value;
+  const battletag = document.getElementById("battletag").value;
+
+  const userData = {
+    nomeCompleto: `${nome} ${sobrenome}`,
+    email,
+    battletag
+  };
+
+  localStorage.setItem("utilizador", JSON.stringify(userData));
+
+  // Redirecionar para a homepage
+  window.location.href = "index.html";
+}
+
+
+// Inicializa com o primeiro ponto ativo
+document.addEventListener("DOMContentLoaded", updateDots);
+  </script>
+<div class="progress-dots-container">
+    <div class="progress-dots">
+      <span class="dot" data-step="1"></span>
+      <span class="dot" data-step="2"></span>
+      <span class="dot" data-step="3"></span>
+      <span class="dot" data-step="4"></span>
+      <span class="dot" data-step="5"></span>
+      <span class="dot" data-step="6"></span>
+      <span class="dot" data-step="7"></span>
+    </div>
+  </div>
+</body>
+</html>

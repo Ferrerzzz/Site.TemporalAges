@@ -3,10 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navbar Overwatch</title>
-    <link rel="stylesheet" href="index-style.css">
+  <title>Temporal Ages</title>
+  <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dados = localStorage.getItem("utilizadorLogado");
+  
+      if (dados) {
+        const user = JSON.parse(dados);
+  
+        // Encontra o dropdown da Conta e troca pelo nome
+        const dropdown = document.querySelector(".nav-right .dropdown");
+        dropdown.innerHTML = `
+          <span class="nav-link">${user.nomeCompleto}</span>
+          <div class="dropdown-content">
+            <div style="padding: 12px 18px; font-weight: bold;">
+              ${user.gameTag}<br>
+              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+            </div>
+            <a href="#" onclick="logout()">Terminar Sessão</a>
+          </div>
+        `;
+      }
+    });
+  
+    function logout() {
+      localStorage.removeItem("utilizadorLogado");
+      location.reload(); // Atualiza a página
+    }
+
+    // Função para alterar o conteúdo ao clicar nos botões
+    function mudarConteudo(tipo) {
+      const imgPersonagem = document.querySelector(".personagem-img");
+      const textoPersonagem = document.querySelector(".texto-personagem");
+
+      if (tipo === "principais") {
+        imgPersonagem.src = "gajo1-removebg-preview.png"; // Alterar para a imagem dos principais
+        textoPersonagem.innerHTML = "<h3>Personagens Principais</h3><p>Conheça os heróis principais da história. Eles são os protagonistas de Temporal Ages, com habilidades únicas e histórias fascinantes.</p>";
+      } else if (tipo === "npc") {
+        imgPersonagem.src = "anubis-removebg-preview.png"; // Alterar para a imagem dos NPCs
+        textoPersonagem.innerHTML = "<h3>NPCs</h3><p>Os NPCs são personagens não jogáveis que enriquecem o universo de Temporal Ages, oferecendo missões, informações e interações.</p>";
+      } else if (tipo === "boss") {
+        imgPersonagem.src = "boss.jpg"; // Alterar para a imagem dos bosses
+        textoPersonagem.innerHTML = "<h3>Bosses</h3><p>Os bosses são os maiores desafios de Temporal Ages. Enfrentá-los requer habilidade, estratégia e coragem.</p>";
+      }
+    }
+  </script>
+
   <div class="navbar-container">
     <div class="navbar">
       <div class="nav-left">
@@ -47,8 +93,8 @@
         <div class="dropdown">
           <span class="nav-link">Conta</span>
           <div class="dropdown-content">
-            <a href="#">Login</a>
-            <a href="#">Registrar</a>
+            <a href="login.html">Login</a>
+            <a href="registo.html">Registrar</a>
           </div>
         </div>
         <button class="btn-jogue">Jogar Agora</button>
@@ -68,9 +114,9 @@
     </div>
   </div>
 
-  <div class="overwatch-promo">
-    <!-- Seção de Texto -->
-    <div class="text-section">
+  <div class="fundo">
+    <div class="overwatch-promo">
+      <div class="text-section">
         <h2>SEJA UM HERÓI,<br>
         Presencie o passado<br>
         e conquiste o futuro!</h2>
@@ -84,28 +130,25 @@
         <div class="divider"></div>
         <a href="#" class="cta-button">SAIBA MAIS</a>
     </div>
-    
-    <!-- Seção do Vídeo -->
-    <div class="video1-section">
+
+      <div class="video1-section">
         <video autoplay loop muted playsinline>
-            <source src="82659-580974597.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos HTML5.
+          <source src="82659-580974597.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos HTML5.
         </video>
+      </div>
     </div>
-</div>
 
-  <div class="Mapas">
-    <!-- Seção de Texto -->
+    <div class="Mapas">
+      <div class="img-Mapas">
+        <img src="mapa.jpg" alt="">
+      </div>
 
-    <div class="img-Mapas">
-      <img src="mapa.jpg" alt="">
-  </div>
-
-    <div class="text-Mapas">
+      <div class="text-Mapas">
         <h2>Mapas</h2>        
         <br>
         
-        <p>Os mapas de "Temporal Ages" são mais do que simples representações geográficas; eles são portais que conectam diferentes épocas, culturas e experiências. Cada mapa é cuidadosamente elaborado para refletir a rica tapeçaria de histórias que compõem o universo do jogo, permitindo que os jogadores explorem, descubram e se envolvam em aventuras únicas. </p>
+        <b><p>Os mapas de "Temporal Ages" são mais do que simples representações geográficas; eles são portais que conectam diferentes épocas, culturas e experiências. Cada mapa é cuidadosamente elaborado para refletir a rica tapeçaria de histórias que compõem o universo do jogo, permitindo que os jogadores explorem, descubram e se envolvam em aventuras únicas. </p></b>
         
         <br>
 
@@ -113,8 +156,69 @@
         <a href="#" class="cta-button">SAIBA MAIS</a>
     </div>
     
-    <!-- Seção do Vídeo -->
 
-</div>
+  </div>
+
+    <div class="personagens">
+      <div class="personagem-info">
+        <div class="personagem-left">
+          <img class="personagem-img" src="gajo1-removebg-preview.png" alt="Personagens Principais" width="400">
+        </div>
+        <div class="personagem-right">
+          <h3>Personagens</h3>
+          <div class="personagem-botoes">
+            <button onclick="mudarConteudo('principais')">Personagens Principais</button>
+            <button onclick="mudarConteudo('npc')">NPCs</button>
+            <button onclick="mudarConteudo('boss')">Bosses</button>
+          </div>
+          <p class="texto-personagem">Conheça os heróis principais da história. Eles são os protagonistas de Temporal Ages, com habilidades únicas e histórias fascinantes.</p>
+          <button class="ver-todos">Ver Todos os Personagens</button>
+        </div>
+      </div>
+    </div>
+
+
+    <footer id="sobre">
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>Sobre Nós</h3>
+              <p>Temporal Ages</p>
+              
+          </div>
+          
+          <div class="footer-section">
+              <h3>Ajuda</h3>
+              <ul>
+                  <li><a href="login.html"><b>Login</b></a></li>
+                  <li><a href="registo.php">Registo</a></li>
+                  <li><a href="conta.php">Conta</a></li>
+                  <li><a href="">Recuperar Palavra-Passe</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Redes Sociais</h3>
+              <ul>
+                  <li><a href="#" >Facebook</a><br></li>
+                  <li><a href="#" >Instagram</a><br></li>
+                  <li><a href="#" >Twitter</a><br></li>
+                  <li><a href="#" >LinkedIn</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Contate-nos</h3>
+              <p>Email: suporte@temporalages.gg</p>
+              <p>Telefone: 21 922 9500</p>
+              <p>Endereço: R. São Francisco Xavier 87</p>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <p>&copy; 2025. Todos os direitos reservados Temporal Ages.</p>
+      </div>
+  </footer>
+
+
 </body>
 </html>

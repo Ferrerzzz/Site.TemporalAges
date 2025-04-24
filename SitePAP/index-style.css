@@ -21,7 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #97d2da;
+  background: #ffffff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   color: #000;
   border-radius: 12px;
@@ -29,9 +29,6 @@ body {
   padding: 0 60px; 
 
   }
-
-
-
 
 .nav-link {
   text-decoration: none;
@@ -104,7 +101,7 @@ body {
   cursor: pointer;
 }
 .btn-jogue {
-  background-color: #f25c05;
+  background-color: #0044ff;
   color: white;
   padding: 8px 15px;
   border: none;
@@ -148,7 +145,7 @@ body {
   margin: 15px 0;
 }
 .video-overlay .btn-jogue-agora {
-  background-color: #f25c05;
+  background-color: #0044ff;
   color: white;
   padding: 12px 25px;
   font-size: 1em;
@@ -161,14 +158,13 @@ body {
 .overwatch-promo {
   display: flex;
   align-items: center;
-  background-color: #c3d2fa; /* Azul escuro do Overwatch */
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 60px;
+  background-image: url(fundo1.jpg);
   width: 100%;
   height: 70%;
   margin: 0 auto;
- 
   gap: 50px;
 }
 
@@ -189,20 +185,10 @@ body {
 
   width: 35em;
   opacity: 0.9;
+
+  color:black;
 }
 
-
-.cta-button {
-  display: inline-block;
-  padding: 15px 35px;
-  background: #0044ff;
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1.1em;
-  transition: 0.3s;
-}
 
 .cta-button:hover {
   transform: translateY(-2px);
@@ -221,31 +207,52 @@ body {
 .Mapas {
   display: flex;
   align-items: center;
-  background-color: #527574;
-  color: rgb(0, 0, 0);
+  color: #ffffff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 60px;
   width: 100%;
   margin: 0 auto;
-  gap: 80px;
-  flex-wrap: wrap; /* Adicionado para responsividade */
+  gap: 0px;
+  background-image: url(fundo.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.Mapas::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.671); 
+}
+
+.Mapas .text-Mapas {
+  position: relative;
+  z-index: 2;
+}
+
+.Mapas .img-Mapas  {
+  position: relative;
+  z-index: 2; 
 }
 
 .img-Mapas {
-  padding-left: 30px;
+  margin-left: 100px;
+  padding-top: 70px;
   height:500px;
-  overflow: hidden;
+  width: 700px;
+  overflow: hidden;;
+ 
 }
 
-.video-Mapas img {
-  width: 100%;
-  display: block;
-  border-radius: 10px;
-}
 
 .text-Mapas {
   flex: 1;
   max-width: 600px;
+  margin-left: 100px;
 }
 
 .text-Mapas h2 {
@@ -264,15 +271,155 @@ body {
 .cta-button {
   display: inline-block;
   padding: 15px 35px;
-  background: #0044ff;
+  background: #2761ff;
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 4px;
   font-size: 1.1em;
   transition: 0.3s;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
+}
+
+
+
+.personagens {
+  padding: 60px;
+  background-color: #f4f4f9;
+  color: #333;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  background-color: rgb(50, 137, 219);
+
+}
+
+.personagens p{
+  font-size: 1.1em;
+  line-height: 1.6em;
+  opacity: 0.9;
+  
+}
+
+.personagem-botoes {
+  display: flex;
+  gap: 20px;
+}
+
+.personagem-botoes button {
+  padding: 12px 30px;
+  background-color: #0044ff;
+  color: #ffffff;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.personagem-botoes button:hover {
+  background-color: #0033cc;
+  transform: scale(1.05);
+}
+
+.personagem-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+  gap: 20px;
+  width: 100%;
+}
+
+.personagem-left {
+  flex: 1; 
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.personagem-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: center; 
+  text-align: center; 
+}
+
+.personagem-img {
+  max-width: 100%;
+}
+
+.personagem-botoes {
+  display: flex; 
+  gap: 20px; 
+  margin-left: 400px;
+  justify-content: center; 
+  margin-top: 20px; 
+}
+
+
+.ver-todos {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 600px;
+}
+
+.personagem-botoes button:hover,
+.ver-todos:hover {
+  background-color: #45a049;
+}
+
+.ver-todos {
+  margin-top: 20px; 
+  width: auto; 
+}
+
+footer {
+  background-color: #202020; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: left; 
+}
+
+.footer-container {
+  display: flex; 
+  justify-content: space-around;
+  flex-wrap: wrap; 
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+.footer-section {
+  flex: 1; 
+  min-width: 200px; 
+  margin: 10px; 
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 10px; 
+}
+
+.footer-section a {
+  color: #f39c12; 
+  text-decoration: none; 
+}
+
+.footer-section a:hover {
+  text-decoration: underline; 
+}
+
+.footer-bottom {
+  text-align: center; 
+  margin-top: 20px;
 }
