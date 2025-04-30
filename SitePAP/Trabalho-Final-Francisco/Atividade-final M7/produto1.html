@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+
+    <div id="inicio">
+        <p>Bem-vindo ao meu projeto final do M7</p>
+    </div>
+
+    <div id="nav">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="registo.php">Registo</a></li>
+                <li><a href="image.php">Adicionar-imagem</a></li>
+                <li><a href="pesquisar.html">Pesquisar</a></li>
+                <li><a href="lista.php">Lista</a></li>
+                <li><a href="conta.php">Conta</a></li>
+               
+               
+      
+                </ul>
+        </nav>
+    </div>
+    <form action="adicionar-registo.php" method="post" enctype="multipart/form-data" >
+        <div class="product-detail">
+            <div class="product-image">
+                    <img src="../Atividade-final M7/Imgs/chuteira-1.jpeg" name="img"> 
+            </div>
+    
+
+            <div class="product-info">
+                <h1>Chuteira Nike Air Rosa</h1>
+                <p class="description">Chuteira Nike Air ideal para quem tem uma posição mais avançada no terreno de jogo.</p>
+                
+                <input type="hidden" name="nome" value="Chuteira Nike Air Rosa" >
+                
+                <h2 class="price">270€ <span class="old-price">290€</span></h2>
+
+                <input type="hidden" name="preco" value="270">
+                
+                <br>
+
+                Tamanho:
+                 
+                <input type="radio"  name="tmh" value="41"><label for="41">41</label>
+                    
+                <input type="radio"  name="tmh" value="42"><label for="42">42</label>
+                    
+                <input type="radio" name="tmh" value="43"><label for="43">43</label>
+                    
+                    
+                <br>
+
+                Tipo de Relvado:
+
+                <input type="radio"  name="tpr" value="Natural"><label for="Natural">Natural</label>
+                    
+                <input type="radio"  name="tpr" value="Artificial"><label for="Artificial">Artificial</label>
+                    
+                <input type="radio" name="tpr" value="Misto"><label for="Misto">Misto</label>
+                    
+                    
+                <br>
+                <div class="quantity-area">
+                    <label for="quantidade">QTD:</label>
+                    <input type="number" id="quantidade" name="qtd" value="1" min="1"> 
+                </div>
+                <br>
+                <p class="shipping">Envio grátis: Para encomendas desde €200.</p>
+                <br>                
+
+                <br>
+
+                <button type="submit" onclick='return check()'class="btn-comprar">Finalizar compra</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+    <footer id="#sobre">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Trabalho Final M7 Francisco Ferreira.</p>
+                
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="registo.php">Registo</a></li>
+                    <li><a href="conta.php">Conta</a></li>
+                    <li><a href="">Recuperar Palavra-Passe</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" >Facebook</a><br>
+                <a href="#" >Instagram</a><br>
+                <a href="#" >Twitter</a><br>
+                <a href="#" >LinkedIn</a>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contate-nos</h3>
+                <p>Email: francisco.ferreira27674@al.aememmartins.pt</p>
+                <p>Telefone: 21 922 9500</p>
+                <p>Endereço: R. São Francisco Xavier 87</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024. Todos os direitos reservados Francisco Ferreira.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function check(){
+        return confirm('Tem a certeza que pertende finalizar a compra ?');
+            }
+</script>

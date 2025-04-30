@@ -1,0 +1,172 @@
+body {
+  margin: 0;            
+  padding: 0;           
+  width: 100%;        
+  height: 100%;        
+  overflow-x: hidden;   
+}
+nav{
+
+    background: rgb(38, 52, 255);
+    padding: 1rem;
+}
+#nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+#nav ul li {
+    display: inline;
+
+
+  }
+  
+#nav li a {
+    display: block;
+    color: white;
+    padding: 0.5rem 1rem; 
+    text-decoration: none; 
+    background-color: rgb(38, 52, 255);
+
+  }
+
+  
+
+
+#inicio {
+  display: flex; 
+  justify-content: center; 
+  align-items: flex-start; 
+  height: 10px;
+  background-color:rgb(49, 121, 255);; 
+  padding: 20px;
+  color:rgb(0, 0, 0);
+}
+
+#inicio p{
+  margin: 0;
+}
+
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%; 
+  height: 822px; 
+}
+
+.banner-images {
+  display: flex; 
+  transition: transform 0.5s ease; 
+}
+
+.banner-images img {
+  width: 100%; 
+  height: auto; 
+  display: none; 
+}
+
+.banner-images img.active {
+  display: block; 
+}
+
+
+.btn-banner {
+  position: absolute; 
+  bottom: 20px; 
+  right: 120px; 
+  bottom: 100px;
+  background-color: #ffffff; 
+  color: #000; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  text-decoration: none; 
+  font-size: 16px; 
+ 
+}
+
+
+.mais-vendidos {
+  display: flex; 
+  flex-direction: column; 
+  
+}
+
+.mais-vendidos h2 {
+  margin-bottom: 20px; 
+}
+
+.product-grid {
+  display: flex; 
+  gap: 20px; 
+}
+
+.product-item {
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  padding: 10px; 
+  background-color: #f9f9f9; 
+  text-align: center; 
+}
+
+.product-item img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 5px; 
+}
+
+.btn-comprar {
+  display: inline-block; 
+  padding: 10px 20px; 
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none; 
+  border-radius: 5px;
+  margin-top: 10px; 
+}
+
+
+footer {
+  background-color: #333; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: left; 
+}
+
+.footer-container {
+  display: flex; 
+  justify-content: space-around;
+  flex-wrap: wrap; 
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+.footer-section {
+  flex: 1; 
+  min-width: 200px; 
+  margin: 10px; 
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 10px; 
+}
+
+.footer-section a {
+  color: #f39c12; 
+  text-decoration: none; 
+}
+
+.footer-section a:hover {
+  text-decoration: underline; 
+}
+
+.footer-bottom {
+  text-align: center; 
+  margin-top: 20px;
+}

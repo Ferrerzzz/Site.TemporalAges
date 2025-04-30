@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Final</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="inicio">
+        <p>Bem-vindo ao meu projeto final do M7</p>
+    </div>
+
+    <div id="nav">
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="registo.php">Registo</a></li>
+            <li><a href="image.php">Adicionar-imagem</a></li>
+            <li><a href="pesquisar.html">Pesquisar</a></li>
+            <li><a href="lista.php">Lista</a></li>
+            <li><a href="conta.php">Conta</a></li>
+           
+           
+  
+            </ul>
+        </nav>
+    </div>
+
+    <div id="banner">
+        <div class="banner-images">
+            <img src="../Atividade-final M7/Imgs/banner-principal.jpg" alt="Imagem 1" class="active">
+            <img src="../Atividade-final M7/Imgs/banner-principal2.jpg" alt="Imagem 2">
+            <img src="../Atividade-final M7/Imgs/banner-principal-3.jpg" alt="Imagem 3">
+            <a href="#produtos" class="btn-banner">Mais produtos</a>
+        </div>
+
+        
+        
+
+    </div>
+
+
+    <div id ="produtos" class="mais-vendidos">
+        <h2>Produtos</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-1.jpeg" alt="Produto 1">
+                <p>Chuteira nike Air Rosa</p>
+                <a href="produto1.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-2.jpeg" alt="Produto 2">
+                <p>Chuteira Nike Air bege </p>
+                <a href="produto2.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-3.jpeg" alt="Produto 3">
+                <p>Chuteira Nike Air Azul e Roxo </p>
+                <a href="produto3.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-4.jpeg" alt="Produto 4">
+                <p>Chuteira Nike Mercurial Gold</p>
+                <a href="produto4.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-5.jpeg" alt="Produto 4">
+                <p>Chuteira Nike CR7 Azul</p>
+                <a href="produto5.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-6.jpeg" alt="Produto 4">
+                <p>Chuteira Nike Mercurial Azul</p>
+                <a href="produto6.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-7.jpeg" alt="Produto 4">
+                <p>Chuteira Nike Air Branco</p>
+                <a href="produto7.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="product-item">
+                <img src="../Atividade-final M7/Imgs/chuteira-8.jpeg" alt="Produto 4">
+                <p>Chuteira Nike Mercurial Laranja</p>
+                <a href="produto8.html" class="btn-comprar">Comprar Agora</a>
+            </div>
+        </div>
+    </div>
+
+<br>
+<br>
+
+    <footer id="sobre">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Trabalho Final M7 Francisco Ferreira.</p>
+                
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="registo.php">Registo</a></li>
+                    <li><a href="conta.php">Conta</a></li>
+                    <li><a href="">Recuperar Palavra-Passe</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" >Facebook</a><br>
+                <a href="#" >Instagram</a><br>
+                <a href="#" >Twitter</a><br>
+                <a href="#" >LinkedIn</a>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contate-nos</h3>
+                <p>Email: francisco.ferreira27674@al.aememmartins.pt</p>
+                <p>Telefone: 21 922 9500</p>
+                <p>Endereço: R. São Francisco Xavier 87</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024. Todos os direitos reservados Francisco Ferreira.</p>
+        </div>
+    </footer>
+
+    
+    
+    
+</body>
+
+<script>
+    const images = document.querySelectorAll('.banner-images img');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        images[currentIndex].classList.remove('active'); 
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active'); 
+    }
+
+    setInterval(showNextImage, 5000); 
+</script>
+</html>

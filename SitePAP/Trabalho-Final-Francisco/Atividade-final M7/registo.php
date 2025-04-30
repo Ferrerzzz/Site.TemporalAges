@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos-lgn.css">
+    <title>login</title>
+</head>
+<body>
+
+    <div id="inicio">
+        <p>Bem-vindo ao meu projeto final do M7</p>
+    </div>
+
+    <div id="nav">
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="registo.php">Registo</a></li>
+            <li><a href="image.php">Adicionar-imagem</a></li>
+            <li><a href="pesquisar.html">Pesquisar</a></li>
+            <li><a href="lista.php">Lista</a></li>
+            <li><a href="conta.php">Conta</a></li>
+           
+           
+  
+            </ul>
+        </nav>
+    </div>
+
+    <div class="product-detail">
+    <div class="product-info">
+        <form action="adicionar-registo-user.php" method="post">
+            <table>
+                <tr>
+                    <td><label for="nome"><b>Nome:</b></label></td>
+                    <td><input type="text" id="nome" name="nome" maxlength="8" required pattern="^\S+$" title="O username não pode conter espaços"><font color="#AA0000">*</font></td>
+                </tr>
+                <tr>
+                    <td><label for="email"><b>Email:</b></label></td>
+                    <td><input type="email" id="email" name="email" maxlength="40" required><font color="#AA0000">*</font></td>
+                </tr>
+                <tr>
+                    <td><label for="pass"><b>Password:</b></label></td>
+                    <td><input type="password" id="pass" name="pass" minlength="7" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S]+$" title="A palavra-passe deve conter letras maiúsculas, minúsculas e números e não pode conter espaços."><font color="#AA0000">*</font></td>
+                </tr>
+                <tr>
+                    <td><label for="datanasc"><b>Data de nascimento:</b></label></td>
+                    <td><input type="date" id="datanasc" name="datanasc" required><font color="#AA0000">*</font></td>
+                </tr>
+                <tr>
+                    <td><button id="btn-comprar" type="submit">Registo</button></td>
+                </tr>    
+            </table>
+        </form>
+       
+        
+    </div>
+</div>
+
+
+    <footer id="#sobre">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Trabalho Final M7 Francisco Ferreira.</p>
+                
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="registo.php">Registo</a></li>
+                    <li><a href="conta.php">Conta</a></li>
+                    <li><a href="">Recuperar Palavra-Passe</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <a href="#" >Facebook</a><br>
+                <a href="#" >Instagram</a><br>
+                <a href="#" >Twitter</a><br>
+                <a href="#" >LinkedIn</a>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contate-nos</h3>
+                <p>Email: francisco.ferreira27674@al.aememmartins.pt</p>
+                <p>Telefone: 21 922 9500</p>
+                <p>Endereço: R. São Francisco Xavier 87</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024. Todos os direitos reservados Francisco Ferreira.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

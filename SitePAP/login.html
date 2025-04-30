@@ -24,11 +24,16 @@
 
         </table>
       </div>
-      <input type="text" id="email" placeholder="Email ou telefone" required>
-      <input type="password" id="senha" placeholder="Senha" required>
+      <form action="verifica.php" method="post">
+
+      <input type="text" id="email" name="email"placeholder="Email ou telefone" required>
+      <input type="password" id="senha" name="senha" placeholder="Senha" required>
       <div class="error-message" id="senha-erro" style="display: none;">Insira sua senha.</div>
       <br>
       <button onclick="login()">Entrar</button>
+
+      </form>
+
       <div class="links">
         <br>
         <strong><a href="#">Crie uma conta Temporal Ages grátis</a></strong>

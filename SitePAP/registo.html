@@ -78,18 +78,31 @@
     const totalSteps = 7;
 
     function nextStep() {
-      if (currentStep === 3) {
-        const email = document.getElementById("email").value;
-        document.getElementById("resumo-email").textContent = email;
-      }
 
-      if (currentStep < totalSteps) {
-        document.getElementById(`step-${currentStep}`).classList.remove("active");
-        currentStep++;
-        updateDots();
-        document.getElementById(`step-${currentStep}`).classList.add("active");
-      }
+  if (currentStep === 5) {
+    const senha = document.getElementById("senha").value;
+    const senha2 = document.getElementById("senha2").value;
+
+    if (senha !== senha2) {
+      alert("As senhas não coincidem. Tente novamente.");
+      return; 
     }
+  }
+
+
+  if (currentStep === 3) {
+    const email = document.getElementById("email").value;
+    document.getElementById("resumo-email").textContent = email;
+  }
+
+ 
+  if (currentStep < totalSteps) {
+    document.getElementById(`step-${currentStep}`).classList.remove("active");
+    currentStep++;
+    updateDots();
+    document.getElementById(`step-${currentStep}`).classList.add("active");
+  }
+}
 
 
     function updateDots() {
@@ -113,12 +126,13 @@ function finalizar() {
   const userData = {
     nomeCompleto: `${nome} ${sobrenome}`,
     email,
-    battletag
+    gameTag: battletag
   };
 
-  localStorage.setItem("utilizador", JSON.stringify(userData));
 
-  // Redirecionar para a homepage
+  localStorage.setItem("utilizadorLogado", JSON.stringify(userData));
+
+  
   window.location.href = "index.html";
 }
 
