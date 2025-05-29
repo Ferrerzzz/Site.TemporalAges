@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Heróis - Overwatch</title>
+  <link rel="stylesheet" href="personagens-style.css">
+  <style>
+
+  </style>
+</head>
+<body>
+     <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dados = localStorage.getItem("utilizadorLogado");
+  
+      if (dados) {
+        const user = JSON.parse(dados);
+  
+        // Encontra o dropdown da Conta e troca pelo nome
+        const dropdown = document.querySelector(".nav-right .dropdown");
+        dropdown.innerHTML = `
+          <span class="nav-link">${user.gameTag}</span>
+          <div class="dropdown-content">
+            <div style="padding: 12px 18px; font-weight: bold;">
+              ${user.gameTag}<br>
+              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+            </div>
+            <a href="#" onclick="logout()">Terminar Sessão</a>
+          </div>
+        `;
+      }
+    });
+  
+    function logout() {
+      localStorage.removeItem("utilizadorLogado");
+      location.reload(); // Atualiza a página
+    }
+
+    // Função para alterar o conteúdo ao clicar nos botões
+    
+  </script>
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="logo.png" alt="Overwatch" width="60">
+        </div>
+
+        <div class="dropdown">
+          <span class="nav-link">Temporal Ages</span>
+          <div class="dropdown-content">
+            <a href="#">Visão geral</a>
+            <a href="#">Como jogar</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="#">Personagens</a>
+        <a class="nav-link" href="#">Mapas</a>
+        <a class="nav-link" href="#">Notícias</a>
+
+        <div class="dropdown">
+          <span class="nav-link">Suporte</span>
+          <div class="dropdown-content">
+            <a href="#">Fóruns</a>
+            <a href="#">Contacte-nos</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <span class="nav-link">Loja</span>
+          <div class="dropdown-content">
+            <a href="#">Produtos</a>
+            <a href="#">Ofertas</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="dropdown">
+          <span class="nav-link">Conta</span>
+          <div class="dropdown-content">
+            <a href="login.html">Login</a>
+            <a href="registo.html">Registrar</a>
+          </div>
+        </div>
+        <button class="btn-jogue">Jogar Agora</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="header">
+  <div class="hero-title-box">
+    <h1>HERÓIS</h1>
+  </div>
+</div>
+  <div class="filters">
+    <button class="active" onclick="filterHeroes('all')">TODOS</button>
+    <button onclick="filterHeroes('per')">🛡️ Personagens</button>
+    <button onclick="filterHeroes('npc')">🎯 NPCS</button>
+    <button onclick="filterHeroes('boss')">💉 Boss</button>
+
+
+
+  </div>
+
+      <p id="descricao" style="text-align: center; color: rgb(0, 0, 0); margin-top: -10px; font-size: 18px;">
+    Veja todos os personagens disponíveis em Temporal Ages.
+    </p>
+
+  <div class="heroes">
+    <div class="hero-card" data-role="per">
+      <img src="gajo1-removebg-preview.png" alt="Novo Herói">
+      <span>Chico</span>
+    </div>
+    <div class="hero-card" data-role="npc">
+      <img src="gajo3.png" alt="Ana">
+      <span>Rome Warrior</span>
+    </div>
+    <div class="hero-card" data-role="boss">
+      <img src="anubis-removebg-preview.png" alt="Ashe">
+      <span>Anubis</span>
+    </div>
+  </div>
+
+  <script>
+function filterHeroes(role) {
+  const cards = document.querySelectorAll('.hero-card');
+  const buttons = document.querySelectorAll('.filters button');
+  const descricao = document.getElementById('descricao');
+
+  // Atualizar classes dos botões
+  buttons.forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.filters button[onclick="filterHeroes('${role}')"]`).classList.add('active');
+
+  // Atualizar visibilidade dos cards
+  cards.forEach(card => {
+    if (role === 'all' || card.dataset.role === role) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Atualizar descrição com base no botão
+  switch (role) {
+    case 'all':
+      descricao.textContent = 'Veja todos os personagens disponíveis em Temporal Ages.';
+      break;
+    case 'per':
+      descricao.textContent = 'Explore os personagens jogáveis com habilidades únicas.';
+      break;
+    case 'npc':
+      descricao.textContent = 'Conheça os NPCs que ajudam ou desafiam você na jornada.';
+      break;
+    case 'boss':
+      descricao.textContent = 'Enfrente os chefões mais perigosos do universo de Temporal Ages.';
+      break;
+  }
+}
+  </script>
+</body>
+</html>
