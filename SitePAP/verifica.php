@@ -18,7 +18,7 @@ if ($con==TRUE){
     $linhas=mysqli_num_rows($query);
 
     
-    if ($linhas >0 || $linhas2>0 )
+    if ($linhas >0)
         {   
 
         session_start();
@@ -32,10 +32,7 @@ if ($con==TRUE){
         echo "<meta http-equiv=\"refresh\"content=\"0; url=index.html\">";
 
          }
-
-
-        
-
+         
         ?>
         <script>
 

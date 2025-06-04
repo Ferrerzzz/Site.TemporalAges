@@ -115,3 +115,8 @@ strong {
   .dot.active {
     background-color: #2f8be6;
   }
+      input.invalid, select.invalid {
+      border: 2px solid red;
+      background-color: #0b0c16f6;
+      
+    }

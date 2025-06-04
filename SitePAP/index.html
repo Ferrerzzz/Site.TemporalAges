@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temporal Ages</title>
-  <link rel="stylesheet" href="index-style.css">
+  <link rel="stylesheet" href="css/index-style.css">
 </head>
 <body>
 
@@ -15,7 +15,6 @@
       if (dados) {
         const user = JSON.parse(dados);
   
-        // Encontra o dropdown da Conta e troca pelo nome
         const dropdown = document.querySelector(".nav-right .dropdown");
         dropdown.innerHTML = `
           <span class="nav-link">${user.gameTag}</span>
@@ -32,10 +31,9 @@
   
     function logout() {
       localStorage.removeItem("utilizadorLogado");
-      location.reload(); // Atualiza a página
+      location.reload(); 
     }
 
-    // Função para alterar o conteúdo ao clicar nos botões
     
   </script>
 
@@ -43,7 +41,7 @@
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
-          <img src="logo.png" alt="Overwatch" width="60">
+          <img src="imagens/logo.png" alt="temporalAges" width="60">
         </div>
 
         <div class="dropdown">
@@ -66,13 +64,7 @@
           </div>
         </div>
 
-        <div class="dropdown">
-          <span class="nav-link">Loja</span>
-          <div class="dropdown-content">
-            <a href="#">Produtos</a>
-            <a href="#">Ofertas</a>
-          </div>
-        </div>
+
       </div>
 
       <div class="nav-right">
@@ -90,7 +82,7 @@
 
   <div class="video-section">
     <video autoplay muted loop>
-      <source src="164386-830461339.mp4" type="video/mp4">
+      <source src="imagens/164386-830461339.mp4" type="video/mp4">
     </video>
     <div class="video-overlay">
       <h1>Temporal Ages</h1>
@@ -101,7 +93,7 @@
   </div>
 
   <div class="fundo">
-    <div class="overwatch-promo">
+    <div class="first-section ">
       <div class="text-section">
         <h2>SEJA UM HERÓI,<br>
         Presencie o passado<br>
@@ -119,15 +111,14 @@
 
       <div class="video1-section">
         <video autoplay loop muted playsinline>
-          <source src="82659-580974597.mp4" type="video/mp4">
-          Seu navegador não suporta vídeos HTML5.
+          <source src="imagens/82659-580974597.mp4" type="video/mp4">
         </video>
       </div>
     </div>
 
     <div class="Mapas">
       <div class="img-Mapas">
-        <img src="mapa.jpg" alt="">
+        <img src="imagens/mapa.jpg" alt="">
       </div>
 
       <div class="text-Mapas">
@@ -147,7 +138,7 @@
 <div class="personagenssec">
   <div class="container">
     <div class="image-section">
-      <img id="heroImage" src="gajo1-removebg-preview.png" alt="Herói Principal">
+      <img id="heroImage" src="imagens/gajo1-removebg-preview.png" alt="Personagen Principal">
     </div>
 
     <div class="content-section">
@@ -170,15 +161,15 @@
       const content = {
         principais: {
           text: "<strong>Personagens Principais:</strong><br><br> São os protagonistas de Temporal Ages. Cada um possui habilidades únicas e papel crucial na narrativa. Você joga com eles para mudar o destino do tempo.",
-          img: "gajo1-removebg-preview.png"
+          img: "imagens/gajo1-removebg-preview.png"
         },
         npcs: {
           text: "<strong>NPCs:</strong><br><br> Personagens secundários que ajudam (ou atrapalham) a tua jornada. Alguns fornecem missões, outros escondem segredos importantes.",
-          img: "anubis-removebg-preview.png"
+          img: "imagens/anubis-removebg-preview.png"
         },
         bosses: {
           text: "<strong>Bosses:</strong> <br><br>Inimigos poderosos que testam todas as tuas habilidades. Vencer um boss pode alterar drasticamente a linha temporal!",
-          img: "gajonovo.png"
+          img: "imagens/gajonovo.png"
         }
       };
 
