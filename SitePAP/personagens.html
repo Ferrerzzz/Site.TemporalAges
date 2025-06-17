@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
-     <script>
+    <script>
     document.addEventListener("DOMContentLoaded", () => {
       const dados = localStorage.getItem("utilizadorLogado");
   
@@ -42,36 +42,30 @@
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
-          <img src="imagens/logo.png" alt="Overwatch" width="60">
+          <img src="imagens/logo.png" alt="temporalAges" width="60">
         </div>
 
         <div class="dropdown">
           <span class="nav-link">Temporal Ages</span>
           <div class="dropdown-content">
             <a href="#">Visão geral</a>
-            <a href="#">Como jogar</a>
+            <a href="comoJogar.html">Como jogar</a>
           </div>
         </div>
 
-        <a class="nav-link" href="#">Personagens</a>
+        <a class="nav-link" href="personagens.html">Personagens</a>
         <a class="nav-link" href="#">Mapas</a>
-        <a class="nav-link" href="#">Notícias</a>
+        <a class="nav-link" href="noticias.html">Notícias</a>
 
         <div class="dropdown">
           <span class="nav-link">Suporte</span>
           <div class="dropdown-content">
             <a href="#">Fóruns</a>
-            <a href="#">Contacte-nos</a>
+            <a href="contacto.html">Contacte-nos</a>
           </div>
         </div>
 
-        <div class="dropdown">
-          <span class="nav-link">Loja</span>
-          <div class="dropdown-content">
-            <a href="#">Produtos</a>
-            <a href="#">Ofertas</a>
-          </div>
-        </div>
+
       </div>
 
       <div class="nav-right">
@@ -79,7 +73,7 @@
           <span class="nav-link">Conta</span>
           <div class="dropdown-content">
             <a href="login.html">Login</a>
-            <a href="registo.html">Registrar</a>
+            <a href="registo.php">Registo</a>
           </div>
         </div>
         <button class="btn-jogue">Jogar Agora</button>

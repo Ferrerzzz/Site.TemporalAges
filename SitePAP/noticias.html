@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notícias Overwatch 2</title>
+  <link rel="stylesheet" href="css/noticias.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dados = localStorage.getItem("utilizadorLogado");
+  
+      if (dados) {
+        const user = JSON.parse(dados);
+  
+        const dropdown = document.querySelector(".nav-right .dropdown");
+        dropdown.innerHTML = `
+          <span class="nav-link">${user.gameTag}</span>
+          <div class="dropdown-content">
+            <div style="padding: 12px 18px; font-weight: bold;">
+              ${user.gameTag}<br>
+              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+            </div>
+            <a href="#" onclick="logout()">Terminar Sessão</a>
+          </div>
+        `;
+      }
+    });
+  
+    function logout() {
+      localStorage.removeItem("utilizadorLogado");
+      location.reload(); 
+    }
+
+    
+  </script>
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="imagens/logo.png" alt="temporalAges" width="60">
+        </div>
+
+        <div class="dropdown">
+          <span class="nav-link">Temporal Ages</span>
+          <div class="dropdown-content">
+            <a href="#">Visão geral</a>
+            <a href="comoJogar.html">Como jogar</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="personagens.html">Personagens</a>
+        <a class="nav-link" href="#">Mapas</a>
+        <a class="nav-link" href="noticias.html">Notícias</a>
+
+        <div class="dropdown">
+          <span class="nav-link">Suporte</span>
+          <div class="dropdown-content">
+            <a href="#">Fóruns</a>
+            <a href="contacto.html">Contacte-nos</a>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="nav-right">
+        <div class="dropdown">
+          <span class="nav-link">Conta</span>
+          <div class="dropdown-content">
+            <a href="login.html">Login</a>
+            <a href="registo.php">Registo</a>
+          </div>
+        </div>
+        <button class="btn-jogue">Jogar Agora</button>
+      </div>
+    </div>
+  </div>
+
+
+    <section class="section light-section">
+        <br>
+        <br>
+        <br>
+        <br>
+<div class="title-section">NOTÍCIAS</div>
+<div class="news-grid">
+
+  <div class="grid-item">
+    <img src="imagens/mapa.jpg" alt="Melhoramentos">
+    <div class="grid-content">
+      <h3>RETROSPECTIVA SEMANAL: Melhoramentos no Dungeon 2D</h3>
+      <p>13 de jun.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa.jpg" alt="Mapa Egipto">
+    <div class="grid-content">
+      <h3>Nova Dungeon: Mistérios do Antigo Egipto</h3>
+      <p>6 de jun.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa.jpg" alt="Mapa Grécia">
+    <div class="grid-content">
+      <h3>Novas Mecânicas: Desafios Mitológicos da Grécia</h3>
+      <p>30 de mai.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa.jpg" alt="Comunidade">
+    <div class="grid-content">
+      <h3>Contamos Contigo para Construir o Futuro Temporal</h3>
+      <p>29 de mai.</p>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- Seção Azul -->
+<section class="section blue-section">
+  <div class="news-block">
+
+    <div class="news-item">
+      <img src="imagens/mapa.jpg" alt="Egipto Antigo">
+      <div class="news-text">
+        <h2>Explora a Dungeon do Antigo Egipto</h2>
+        <p>Desvenda os segredos das pirâmides, enfrenta múmias ancestrais e resolve enigmas temporais escondidos nas profundezas do deserto.</p>
+        <p class="date">20 DE MAIO DE 2025</p>
+      </div>
+    </div>
+    <div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+    <div class="news-item">
+      <img src="imagens/mapa.jpg" alt="Grécia Antiga">
+      <div class="news-text">
+        <h2>Mitologia e Batalhas na Era Grega</h2>
+        <p>Combate criaturas lendárias como o Minotauro e a Medusa, enquanto exploras templos antigos e domina o poder dos deuses.</p>
+        <p class="date">15 DE MAIO DE 2025</p>
+      </div>
+    </div>
+    <div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+    <div class="news-item">
+      <img src="imagens/mapa.jpg" alt="Núcleo Temporal">
+      <div class="news-text">
+        <h2>Estabilidade Temporal Melhorada</h2>
+        <p>Melhorámos a transição entre eras e a fluidez dos combates. Agora, cada salto temporal é mais imersivo e desafiador.</p>
+        <p class="date">10 DE MAIO DE 2025</p>
+      </div>
+    </div>
+    <div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+    <div class="news-item">
+  <img src="imagens/mapa.jpg" alt="Artefactos Antigos">
+  <div class="news-text">
+    <h2>Descobre Artefactos Temporais Raros</h2>
+    <p>Foram adicionados novos artefactos que oferecem poderes únicos dependendo da era onde te encontras. Escolhe sabiamente e muda o rumo da história!</p>
+    <p class="date">5 DE MAIO DE 2025</p>
+  </div>
+</div>
+<div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+<div class="news-item">
+  <img src="imagens/mapa.jpg" alt="Guardião Egípcio">
+  <div class="news-text">
+    <h2>Chegou o Guardião de Anúbis</h2>
+    <p>Um novo boss surge nas dunas do Egipto. Domina as arenas de areia e derrota o Guardião de Anúbis para desbloquear um novo fragmento temporal.</p>
+    <p class="date">1 DE MAIO DE 2025</p>
+  </div>
+</div>
+<div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+<div class="news-item">
+  <img src="imagens/mapa.jpg" alt="Templo Grego">
+  <div class="news-text">
+    <h2>Exploração Avançada no Templo de Atena</h2>
+    <p>Novas zonas secretas foram integradas na dungeon da Grécia. Explora o Templo de Atena para aceder a desafios épicos e recompensas lendárias.</p>
+    <p class="date">27 DE ABRIL DE 2025</p>
+  </div>
+</div>
+<div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+<div class="news-item">
+  <img src="imagens/mapa.jpg" alt="Sistema de Clãs">
+  <div class="news-text">
+    <h2>Chega o Sistema de Clãs Temporais</h2>
+    <p>Agora podes formar clãs com outros aventureiros! Junta-te para conquistar dungeons por eras e competir por recompensas semanais.</p>
+    <p class="date">22 DE ABRIL DE 2025</p>
+  </div>
+</div>
+<div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+
+<div class="news-item">
+  <img src="imagens/mapa.jpg" alt="Portal Temporal">
+  <div class="news-text">
+    <h2>Portal Temporal em Instabilidade</h2>
+    <p>Eventos imprevisíveis começaram a surgir entre eras. Mantém-te atento aos portais instáveis — podem levar-te a zonas nunca antes vistas!</p>
+    <p class="date">18 DE ABRIL DE 2025</p>
+  </div>
+</div>
+<div style="height: 2px; background-color: white; margin: 16px 0;"></div>
+  </div>
+  
+</section>
+
+   <footer id="sobre">
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>Sobre Nós</h3>
+              <p>Temporal Ages</p>
+              
+          </div>
+          
+          <div class="footer-section">
+              <h3>Ajuda</h3>
+              <ul>
+                  <li><a href="login.html"><b>Login</b></a></li>
+                  <li><a href="registo.php">Registo</a></li>
+                  <li><a href="conta.php">Conta</a></li>
+                  <li><a href="">Recuperar Palavra-Passe</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Redes Sociais</h3>
+              <ul>
+                  <li><a href="#" >Facebook</a><br></li>
+                  <li><a href="#" >Instagram</a><br></li>
+                  <li><a href="#" >Twitter</a><br></li>
+                  <li><a href="#" >LinkedIn</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Contate-nos</h3>
+              <p>Email: suporte@temporalages.gg</p>
+              <p>Telefone: 21 922 9500</p>
+              <p>Endereço: R. São Francisco Xavier 87</p>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <p>&copy; 2025. Todos os direitos reservados Temporal Ages.</p>
+      </div>
+  </footer>
+
+  
+
+</body>
+</html>
