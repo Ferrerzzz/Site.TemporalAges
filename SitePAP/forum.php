@@ -11,35 +11,48 @@
 </head>
 <body>
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dados = localStorage.getItem("utilizadorLogado");
-  
-      if (dados) {
-        const user = JSON.parse(dados);
-  
-        const dropdown = document.querySelector(".nav-right .dropdown");
-        dropdown.innerHTML = `
-          <span class="nav-link">${user.gameTag}</span>
-          <div class="dropdown-content">
-            <div style="padding: 12px 18px; font-weight: bold;">
-              ${user.gameTag}<br>
-              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
-            </div>
-            <a href="#" onclick="logout()">Terminar Sessão</a>
-          </div>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dados = localStorage.getItem("utilizadorLogado");
+
+    if (dados) {
+      const user = JSON.parse(dados);
+
+      const dropdown = document.querySelector(".nav-right .dropdown");
+      
+      // Verifica se é o admin
+      const isAdmin = user.gameTag.toLowerCase() === "admin";
+
+      let adminOptions = "";
+      if (isAdmin) {
+        adminOptions = `
+          <hr style="margin: 6px 0;">
+          <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
+          <a href="adicionar_noticia.php">Adicionar Notícia</a>
         `;
       }
-    });
-  
-    function logout() {
-      localStorage.removeItem("utilizadorLogado");
-      location.reload(); 
+
+      dropdown.innerHTML = `
+        <span class="nav-link">${user.gameTag}</span>
+        <div class="dropdown-content">
+          <div style="padding: 12px 18px; font-weight: bold;">
+            ${user.gameTag}<br>
+            <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+          </div>
+          <a href="#" onclick="logout()">Terminar Sessão</a>
+          ${adminOptions}
+        </div>
+      `;
     }
+  });
 
-    
-  </script>
+  function logout() {
+    localStorage.removeItem("utilizadorLogado");
+    location.reload(); 
+  }
+</script>
 
-  <div class="navbar-container">
+
+    <div class="navbar-container">
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
@@ -49,14 +62,14 @@
         <div class="dropdown">
           <span class="nav-link">Temporal Ages</span>
           <div class="dropdown-content">
-            <a href="#">Visão geral</a>
+            <a href="index.html">Visão geral</a>
             <a href="comoJogar.html">Como jogar</a>
           </div>
         </div>
 
         <a class="nav-link" href="personagens.html">Personagens</a>
         <a class="nav-link" href="#">Mapas</a>
-        <a class="nav-link" href="noticias.html">Notícias</a>
+        <a class="nav-link" href="noticias.php">Notícias</a>
 
         <div class="dropdown">
           <span class="nav-link">Suporte</span>
@@ -81,6 +94,11 @@
       </div>
     </div>
   </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
   <header>
@@ -91,9 +109,14 @@
     <table>
       <thead>
         <tr>
-          <th>Título</th>
-          <th>Mensagem</th>
-          <th>Data</th>
+<thead>
+  <tr>
+    <th>Tópico</th>
+    <th>Mensagem</th>
+    <th>Data</th>
+    <th>Autor</th>
+  </tr>
+</thead>
         </tr>
       </thead>
       <tbody>
@@ -105,6 +128,7 @@
               echo "<td>" . htmlspecialchars($post['titulo']) . "</td>";
               echo "<td>" . nl2br(htmlspecialchars($post['mensagem'])) . "</td>";
               echo "<td>" . date('d/m/Y H:i', strtotime($post['data_postagem'])) . "</td>";
+              echo "<td>" . htmlspecialchars($post['autor']) . "</td>";
               echo '</tr>';
           }
 
@@ -113,13 +137,48 @@
       </tbody>
     </table>
 
-    <form action="processa_post.php" method="post">
-      <h2>Novo Tópico</h2>
-      <input type="text" name="titulo" placeholder="Título" required>
-      <textarea name="mensagem" rows="5" placeholder="Escreve aqui a tua mensagem..." required></textarea>
-      <button type="submit">Publicar</button>
-    </form>
+  <a href="nova_publicacao.php" class="update-button">+ Adicionar Nova Publicação</a>
   </main>
 
+      <footer id="sobre">
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>Sobre Nós</h3>
+              <p>Temporal Ages</p>
+              
+          </div>
+          
+          <div class="footer-section">
+              <h3>Ajuda</h3>
+              <ul>
+                  <li><a href="login.html"><b>Login</b></a></li>
+                  <li><a href="registo.php">Registo</a></li>
+                  <li><a href="conta.php">Conta</a></li>
+                  <li><a href="">Recuperar Palavra-Passe</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Redes Sociais</h3>
+              <ul>
+                  <li><a href="#" >Facebook</a><br></li>
+                  <li><a href="#" >Instagram</a><br></li>
+                  <li><a href="#" >Twitter</a><br></li>
+                  <li><a href="#" >LinkedIn</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Contate-nos</h3>
+              <p>Email: suporte@temporalages.gg</p>
+              <p>Telefone: 21 922 9500</p>
+              <p>Endereço: R. São Francisco Xavier 87</p>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <p>&copy; 2025. Todos os direitos reservados Temporal Ages.</p>
+      </div>
+        </footer>
 </body>
 </html>

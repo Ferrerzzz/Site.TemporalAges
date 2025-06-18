@@ -116,11 +116,45 @@ header h1 {
   margin: 0;
 }
 
-main {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
+  main {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+  }
+
+  th {
+    background-color: #333;
+  }
+
+  .update-button {
+    display: inline-block;
+    background-color: #f4c430;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  .update-button:hover {
+    background-color: rgb(204, 173, 0);
+  }
 
 .post {
   background-color: #1e1e1e;
@@ -154,3 +188,46 @@ form button {
   font-weight: bold;
   cursor: pointer;
 }
+
+
+footer {
+  background-color: #202020; 
+  color: white; 
+  padding: 20px 0; 
+  text-align: left; 
+}
+
+.footer-container {
+  display: flex; 
+  justify-content: space-around;
+  flex-wrap: wrap; 
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+.footer-section {
+  flex: 1; 
+  min-width: 200px; 
+  margin: 10px; 
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 10px; 
+}
+
+.footer-section a {
+  color: #f39c12; 
+  text-decoration: none; 
+}
+
+.footer-section a:hover {
+  text-decoration: underline; 
+}
+
+.footer-bottom {
+  text-align: center; 
+  margin-top: 20px;
+}
+

@@ -8,34 +8,46 @@
 </head>
 <body>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dados = localStorage.getItem("utilizadorLogado");
-  
-      if (dados) {
-        const user = JSON.parse(dados);
-  
-        const dropdown = document.querySelector(".nav-right .dropdown");
-        dropdown.innerHTML = `
-          <span class="nav-link">${user.gameTag}</span>
-          <div class="dropdown-content">
-            <div style="padding: 12px 18px; font-weight: bold;">
-              ${user.gameTag}<br>
-              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
-            </div>
-            <a href="#" onclick="logout()">Terminar Sessão</a>
-          </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dados = localStorage.getItem("utilizadorLogado");
+
+    if (dados) {
+      const user = JSON.parse(dados);
+
+      const dropdown = document.querySelector(".nav-right .dropdown");
+      
+      // Verifica se é o admin
+      const isAdmin = user.gameTag.toLowerCase() === "admin";
+
+      let adminOptions = "";
+      if (isAdmin) {
+        adminOptions = `
+          <hr style="margin: 6px 0;">
+          <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
+          <a href="adicionar_noticia.php">Adicionar Notícia</a>
         `;
       }
-    });
-  
-    function logout() {
-      localStorage.removeItem("utilizadorLogado");
-      location.reload(); 
-    }
 
-    
-  </script>
+      dropdown.innerHTML = `
+        <span class="nav-link">${user.gameTag}</span>
+        <div class="dropdown-content">
+          <div style="padding: 12px 18px; font-weight: bold;">
+            ${user.gameTag}<br>
+            <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+          </div>
+          <a href="#" onclick="logout()">Terminar Sessão</a>
+          ${adminOptions}
+        </div>
+      `;
+    }
+  });
+
+  function logout() {
+    localStorage.removeItem("utilizadorLogado");
+    location.reload(); 
+  }
+</script>
 
   <div class="navbar-container">
     <div class="navbar">
@@ -47,14 +59,14 @@
         <div class="dropdown">
           <span class="nav-link">Temporal Ages</span>
           <div class="dropdown-content">
-            <a href="#">Visão geral</a>
+            <a href="index.html">Visão geral</a>
             <a href="comoJogar.html">Como jogar</a>
           </div>
         </div>
 
         <a class="nav-link" href="personagens.html">Personagens</a>
         <a class="nav-link" href="#">Mapas</a>
-        <a class="nav-link" href="noticias.html">Notícias</a>
+        <a class="nav-link" href="noticias.php">Notícias</a>
 
         <div class="dropdown">
           <span class="nav-link">Suporte</span>
@@ -135,6 +147,52 @@
     
 
   </div>
+
+  <section class="section light-section">
+
+<div class="title-section">NOTÍCIAS</div>
+<div class="news-grid">
+
+  <div class="grid-item">
+    <img src="imagens/mapa.jpg" alt="Melhoramentos">
+    <div class="grid-content">
+      <h3>RETROSPECTIVA SEMANAL: Melhoramentos no Dungeon 2D</h3>
+      <p>13 de jun.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa2.jpg" alt="Mapa Egipto">
+    <div class="grid-content">
+      <h3>Nova Dungeon: Mistérios do Antigo Egipto</h3>
+      <p>6 de jun.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa5.jpg" alt="Mapa Grécia">
+    <div class="grid-content">
+      <h3>Novas Mecânicas: Desafios Mitológicos da Grécia</h3>
+      <p>30 de mai.</p>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <img src="imagens/mapa4.png" alt="Comunidade">
+    <div class="grid-content">
+      <h3>Contamos Contigo para Construir o Futuro Temporal</h3>
+      <p>29 de mai.</p>
+    </div>
+  </div>
+</div>
+
+  <div class="news-button-wrapper">
+    <a href="noticias.php" class="update-button">VER MAIS NOTÍCIAS →</a>
+  </div>
+
+</div>
+
+</section>
 <div class="personagenssec">
   <div class="container">
     <div class="image-section">
