@@ -13,13 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
   }
 
-  // Diretório de destino
   $pasta_destino = "imagens/noticias/";
   if (!file_exists($pasta_destino)) {
     mkdir($pasta_destino, 0777, true);
   }
 
-  // Processar a imagem
   $extensao = strtolower(pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION));
   $permitidas = ['jpg', 'jpeg', 'png', 'gif'];
 
@@ -36,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
   }
 
-  // Inserir no BD
   $stmt = $con->prepare("INSERT INTO noticias (titulo, descricao, data_publicacao, imagem) VALUES (?, ?, ?, ?)");
   $stmt->bind_param("ssss", $titulo, $descricao, $data, $imagem_nome);
   $stmt->execute();
@@ -54,12 +51,94 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <title>Adicionar Notícia</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f2f2f2; }
-    form { background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; }
-    input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; }
-    button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-    a { display: block; margin-top: 15px; color: #007bff; text-align: center; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6fa;
+      margin: 0;
+      padding: 40px;
+    }
+
+    form {
+      background: white;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0a4ba1;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fafafa;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #0a4ba1;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #083e88;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #0a4ba1;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -77,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
     <button type="submit">Publicar</button>
-    <a href="index.html">← Voltar </a>
+    <a href="index.html">← Voltar</a>
   </form>
 
 </body>

@@ -1,6 +1,5 @@
 <?php include 'ligacaobd.php'; ?>
 <?php $con = ligaBD(); ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -19,7 +18,6 @@
 
       const dropdown = document.querySelector(".nav-right .dropdown");
       
-      // Verifica se é o admin
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
       let adminOptions = "";
@@ -120,20 +118,35 @@
         </tr>
       </thead>
       <tbody>
-        <?php
-          $query = $con->query("SELECT * FROM posts ORDER BY data_postagem DESC");
+<?php
+  $query = $con->query("SELECT * FROM posts ORDER BY data_postagem DESC");
+  $id = 0;
 
-          while ($post = $query->fetch_assoc()) {
-              echo '<tr>';
-              echo "<td>" . htmlspecialchars($post['titulo']) . "</td>";
-              echo "<td>" . nl2br(htmlspecialchars($post['mensagem'])) . "</td>";
-              echo "<td>" . date('d/m/Y H:i', strtotime($post['data_postagem'])) . "</td>";
-              echo "<td>" . htmlspecialchars($post['autor']) . "</td>";
-              echo '</tr>';
-          }
+  while ($post = $query->fetch_assoc()) {
+    $id++;
+    $mensagemCompleta = htmlspecialchars($post['mensagem']);
+    $mensagemCurta = substr($mensagemCompleta, 0, 50);
+    $temMaisTexto = strlen($mensagemCompleta) > 50;
 
-          $con->close();
-        ?>
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($post['titulo']) . "</td>";
+
+    echo "<td>";
+    echo "<div id='resumo-$id'>" . nl2br($mensagemCurta) . ($temMaisTexto ? '...' : '') . "</div>";
+
+    if ($temMaisTexto) {
+      echo "<div id='completo-$id' style='display: none;'>" . nl2br($mensagemCompleta) . "</div>";
+      echo "<button class='expand-btn' onclick='toggleTexto($id, this)'>Expandir</button>";
+    }
+
+    echo "</td>";
+
+    echo "<td>" . date('d/m/Y H:i', strtotime($post['data_postagem'])) . "</td>";
+    echo "<td>" . htmlspecialchars($post['autor']) . "</td>";
+    echo "</tr>";
+  }
+?>
+
       </tbody>
     </table>
 
@@ -180,5 +193,22 @@
           <p>&copy; 2025. Todos os direitos reservados Temporal Ages.</p>
       </div>
         </footer>
+
+<script>
+  function toggleTexto(id, btn) {
+    const resumo = document.getElementById(`resumo-${id}`);
+    const completo = document.getElementById(`completo-${id}`);
+
+    if (completo.style.display === "none") {
+      resumo.style.display = "none";
+      completo.style.display = "block";
+      btn.textContent = "Recolher";
+    } else {
+      resumo.style.display = "block";
+      completo.style.display = "none";
+      btn.textContent = "Expandir";
+    }
+  }
+</script>
 </body>
 </html>

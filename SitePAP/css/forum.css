@@ -188,46 +188,18 @@ form button {
   font-weight: bold;
   cursor: pointer;
 }
-
-
-footer {
-  background-color: #202020; 
-  color: white; 
-  padding: 20px 0; 
-  text-align: left; 
+.expand-btn {
+  background: none;
+  border: none;
+  color: #ffd000;
+  cursor: pointer;
+  font-size: 0.85em;
+  margin-top: 6px;
+  padding: 0;
 }
 
-.footer-container {
-  display: flex; 
-  justify-content: space-around;
-  flex-wrap: wrap; 
-  max-width: 1200px;
-  margin: 0 auto; 
-  padding: 20px; 
+td {
+  max-width: 300px; /* ou o valor desejado */
+  word-wrap: break-word;
+  vertical-align: top;
 }
-
-.footer-section {
-  flex: 1; 
-  min-width: 200px; 
-  margin: 10px; 
-}
-
-.footer-section h3 {
-  border-bottom: 2px solid #f39c12;
-  padding-bottom: 10px; 
-}
-
-.footer-section a {
-  color: #f39c12; 
-  text-decoration: none; 
-}
-
-.footer-section a:hover {
-  text-decoration: underline; 
-}
-
-.footer-bottom {
-  text-align: center; 
-  margin-top: 20px;
-}
-
