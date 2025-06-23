@@ -110,10 +110,16 @@ body {
   font-size: 1.12em;
 }
 
+.fundo{
+  background-image: url(../imagens/gift.gif);
+   background-color: rgba(128, 128, 128, 0.671); 
+
+}
+
+
 .header {
   text-align: center;
   padding: 80px 20px;
-  background: url(fundo\ 2.jpg);
   position: relative;
 }
 
@@ -161,11 +167,12 @@ color: #fff;
     .hero-card {
       width: 120px;
       text-align: center;
-      background-color: #1e2b3c;
+      background-color: #ffffff00;
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.2s;
-    }
+      color:white
+        }
 
     .hero-card img {
       width: 100%;
@@ -223,5 +230,56 @@ color: #fff;
   margin-top: 20px;
 }
 
+.hero-details {
+  padding: 40px 20px;
+  background-color: #f2f2f2;
+  border-top: 3px solid #ccc;
+}
+
+.hero-details-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 320px; /* Altura fixa */
+  overflow: hidden;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+  max-width: 280px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-info {
+  flex: 2;
+  min-width: 300px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.hero-info h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero-info p {
+  font-size: 16px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
 
     

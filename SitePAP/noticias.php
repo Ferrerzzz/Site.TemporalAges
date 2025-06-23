@@ -66,7 +66,7 @@
         </div>
       </div>
       <a class="nav-link" href="personagens.html">Personagens</a>
-      <a class="nav-link" href="#">Mapas</a>
+      <a class="nav-link" href="mapas.html">Mapas</a>
       <a class="nav-link" href="noticias.php">Notícias</a>
       <div class="dropdown">
         <span class="nav-link">Suporte</span>

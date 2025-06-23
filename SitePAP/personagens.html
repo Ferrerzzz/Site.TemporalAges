@@ -18,7 +18,7 @@
 
       const dropdown = document.querySelector(".nav-right .dropdown");
       
-      // Verifica se é o admin
+    
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
       let adminOptions = "";
@@ -65,7 +65,7 @@
         </div>
 
         <a class="nav-link" href="personagens.html">Personagens</a>
-        <a class="nav-link" href="#">Mapas</a>
+               <a class="nav-link" href="mapas.html">Mapas</a>
         <a class="nav-link" href="noticias.php">Notícias</a>
 
         <div class="dropdown">
@@ -92,10 +92,10 @@
     </div>
   </div>
 
-
+<div class="fundo">
 <div class="header">
   <div class="hero-title-box">
-    <h1>HERÓIS</h1>
+    <h1>Personagens</h1>
   </div>
 </div>
   <div class="filters">
@@ -108,7 +108,7 @@
 
   </div>
 
-      <p id="descricao" style="text-align: center; color: rgb(0, 0, 0); margin-top: -10px; font-size: 18px;">
+      <p id="descricao" style="text-align: center; color: rgb(255, 255, 255); margin-top: -10px; font-size: 18px;">
     Veja todos os personagens disponíveis em Temporal Ages.
     </p>
 
@@ -125,8 +125,42 @@
       <img src="imagens/anubis-removebg-preview.png">
       <span>Anubis</span>
     </div>
+        <div class="hero-card" data-role="npc">
+      <img src="imagens/Múmia-removebg.png">
+      <span>Múmia</span>
+    </div>
+        <div class="hero-card" data-role="npc">
+      <img src="imagens/CavaleiroNegro-removebg.png">
+      <span>Cavaleiro Negro</span>
+    </div>
+        <div class="hero-card" data-role="boss">
+      <img src="imagens/Hercules-removebg.png">
+      <span>Hercules</span>
+    </div>
+        <div class="hero-card" data-role="npc">
+      <img src="imagens/Grego-removebg.png">
+      <span>Grego</span>
+    </div>
+
+    </div>
   </div>
 
+<div id="hero-details" class="hero-details" style="display: none;">
+  <div class="hero-details-content">
+    <div class="hero-image">
+      <img id="hero-img" src="" alt="Imagem do Herói">
+    </div>
+    <div class="hero-info">
+      <h2 id="hero-name"></h2>
+      <p><strong>Mapa:</strong> <span id="hero-mapa"></span></p>
+      <p><strong>História:</strong> <span id="hero-history"></span></p>
+      <p><strong>Velocidade de Ataque:</strong> <span id="hero-attack-speed"></span></p>
+      <p><strong>Velocidade:</strong> <span id="hero-speed"></span></p>
+    </div>
+  </div>
+</div>
+
+</div>
   <script>
 function filterHeroes(role) {
   const cards = document.querySelectorAll('.hero-card');
@@ -161,6 +195,84 @@ function filterHeroes(role) {
       break;
   }
 }
+const heroData = {
+  "Chico": {
+    nome: "Chico",
+    mapa: "Personagem Principal",
+    historia: "Chico é um guerreiro ágil que luta pela justiça nas ruínas esquecidas de Temporal Ages.",
+    ataque: "Alta",
+    velocidade: "Rápida",
+    imagem: "imagens/gajo1-removebg-preview.png"
+  },
+  "Rome Warrior": {
+    nome: "Rome Warrior",
+    mapa: "Grecia/Roma",
+    historia: "Um soldado lendário de Roma que defende os portões do império mesmo após a morte.",
+    ataque: "Média",
+    velocidade: "Moderada",
+    imagem: "imagens/gajo3.png"
+  },
+  "Anubis": {
+    nome: "Anubis",
+    mapa: "Egypto",
+    historia: "Anubis domina o submundo do Antigo Egypto, punindo os imprudentes que ousam atravessar os portais da eternidade.",
+    ataque: "Muito Alta",
+    velocidade: "Lenta",
+    imagem: "imagens/anubis-removebg-preview.png"
+  },
+  "Múmia": {
+    nome: "Múmia",
+    mapa: "Egypto",
+    historia: "Uma alma ancestral presa em bandagens místicas, ressuscitada para proteger os segredos dos faraós.",
+    ataque: "Baixa",
+    velocidade: "Muito Lenta",
+    imagem: "imagens/Múmia-removebg.png"
+  },
+  "Cavaleiro Negro": {
+    nome: "Cavaleiro Negro",
+    mapa: "Grecia/Roma",
+    historia: "Um guerreiro amaldiçoado das trevas, conhecido pelo seu silêncio e força devastadora.",
+    ataque: "Alta",
+    velocidade: "Moderada",
+    imagem: "imagens/CavaleiroNegro-removebg.png"
+  },
+  "Hercules": {
+    nome: "Hercules",
+    mapa: "Grecia/Roma",
+    historia: "O semideus grego com força incomparável. Luta para restaurar a glória dos deuses antigos.",
+    ataque: "Muito Alta",
+    velocidade: "Rápida",
+    imagem: "imagens/Hercules-removebg.png"
+  },
+  "Grego": {
+    nome: "Grego",
+    mapa: "Grecia/Roma",
+    historia: "Um soldado comum da Grécia antiga, treinado para lutar com honra e disciplina no campo de batalha.",
+    ataque: "Média",
+    velocidade: "Razoável",
+    imagem: "imagens/Grego-removebg.png"
+  }
+};
+
+  document.querySelectorAll('.hero-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const nome = card.querySelector('span').textContent;
+      const dados = heroData[nome];
+
+      if (dados) {
+        document.getElementById('hero-name').textContent = dados.nome;
+        document.getElementById('hero-mapa').textContent = dados.mapa;
+        document.getElementById('hero-history').textContent = dados.historia;
+        document.getElementById('hero-attack-speed').textContent = dados.ataque;
+        document.getElementById('hero-speed').textContent = dados.velocidade;
+        document.getElementById('hero-img').src = dados.imagem;
+        document.getElementById('hero-details').style.display = 'block';
+
+       
+        document.getElementById('hero-details').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
   </script>
 
 
