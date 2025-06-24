@@ -150,8 +150,25 @@
       </tbody>
     </table>
 
-  <a href="nova_publicacao.php" class="update-button">+ Adicionar Nova Publicação</a>
+  <button class="update-button" onclick="mostrarFormularioNovoPost()">+ Adicionar Nova Publicação</button>
+
+
+  <div id="form-novo-post" style="display: none; margin-top: 20px;">
+  <h2>Criar Novo Post</h2>
+  <form method="post" action="processa_post.php">
+    <label for="titulo">Título:</label><br>
+    <input type="text" id="titulo" name="titulo" required><br><br>
+
+    <label for="mensagem">Mensagem:</label><br>
+    <textarea id="mensagem" name="mensagem" rows="5" cols="60" required></textarea><br><br>
+
+    <input type="hidden" id="autor" name="autor"> <!-- será preenchido por JS -->
+
+    <button type="submit">Publicar</button>
+  </form>
+</div>
   </main>
+
 
       <footer id="sobre">
       <div class="footer-container">
@@ -195,6 +212,19 @@
         </footer>
 
 <script>
+  function mostrarFormularioNovoPost() {
+  const form = document.getElementById("form-novo-post");
+  const dados = JSON.parse(localStorage.getItem("utilizadorLogado"));
+
+  if (!dados) {
+    alert("Tem de fazer login para publicar.");
+    return;
+  }
+
+  document.getElementById("autor").value = dados.gameTag;
+  form.style.display = "block";
+}
+
   function toggleTexto(id, btn) {
     const resumo = document.getElementById(`resumo-${id}`);
     const completo = document.getElementById(`completo-${id}`);

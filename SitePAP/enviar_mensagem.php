@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class='mensagem'>
                     <h1>Obrigado pelo seu contacto, $nome!</h1>
                     <p>Recebemos a sua mensagem e entraremos em contacto em breve.</p>
+                    <meta http-equiv=\"refresh\" content=\"5; url=index.html\">
                 </div>
             </body>
             </html>

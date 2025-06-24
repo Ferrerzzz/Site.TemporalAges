@@ -1,18 +1,30 @@
-
 <?php
 include 'ligacaobd.php';
 $con = ligaBD();
-/* 
-session_start();
-if (!isset($_SESSION['utilizador']) || $_SESSION['utilizador']['tipo'] !== 'Admin') {
-    exit('Acesso negado.');
-} */
-$tag = $_GET['tag'];
-$res = $con->query("SELECT * FROM utilizadores WHERE email = '$tag'");
-$user = $res->fetch_assoc();
 
+
+$tag = isset($_GET['tag']) ? $_GET['tag'] : null;
+$id = isset($_GET['id_utl']) ? $_GET['id_utl'] : null;
+
+if ($tag !== null) {
+    $stmt = $con->prepare("SELECT * FROM utilizadores WHERE email = ?");
+    $stmt->bind_param("s", $tag);
+} elseif ($id !== null) {
+    $stmt = $con->prepare("SELECT * FROM utilizadores WHERE id_utl = ?");
+    $stmt->bind_param("i", $id);
+} else {
+    die("Parâmetro de utilizador inválido.");
+    
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if (!$user) {
+    die("Utilizador não encontrado.");
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
