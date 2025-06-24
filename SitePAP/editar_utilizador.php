@@ -1,3 +1,4 @@
+
 <?php
 include 'ligacaobd.php';
 $con = ligaBD();
@@ -6,10 +7,10 @@ session_start();
 if (!isset($_SESSION['utilizador']) || $_SESSION['utilizador']['tipo'] !== 'Admin') {
     exit('Acesso negado.');
 } */
-
-$id = intval($_GET['id']);
-$res = $con->query("SELECT * FROM utilizadores WHERE id_utl = $id");
+$tag = $_GET['tag'];
+$res = $con->query("SELECT * FROM utilizadores WHERE email = '$tag'");
 $user = $res->fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -105,8 +106,17 @@ $user = $res->fetch_assoc();
 
       <button type="submit">Guardar Alterações</button>
     </form>
-
-    <a class="back-link" href="listagem_utilizadores.php">← Voltar à listagem</a>
+<?php 
+if ($tag =="admin"){
+  ?>
+  <a class="back-link" href="listagem_utilizadores.php">← Voltar à listagem</a>
+  <?php
+}else{
+  ?>
+   <a class="back-link" href="index.html">← Voltar</a>
+   <?php
+   }
+   ?>
   </div>
 
 </body>

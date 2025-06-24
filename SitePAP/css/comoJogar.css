@@ -109,110 +109,74 @@ body {
   font-weight: bold;
   font-size: 1.12em;
 }
-
-
-main {
-    flex: 1;
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 6px;
-    margin-top: 30px;
+.como-jogar-container {
+  max-width: 1000px;
+  margin: 120px auto 40px;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #004080;
-    margin-bottom: 1rem;
-    text-align: center;
+.como-jogar-container h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  color: #0044ff;
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
-#paragrafo {
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 1.1rem;
+.como-jogar-container h2 {
+  font-size: 1.6em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #0a4ba1;
+  font-weight: 700;
 }
 
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.como-jogar-container p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    color: #004080;
+.como-jogar-container ul {
+  list-style: disc inside;
+  padding-left: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-    padding: 0.8rem;
-    border: 1.5px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    resize: vertical;
+.como-jogar-container ul li {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: #004080;
-    outline: none;
-    box-shadow: 0 0 5px 2px rgba(0, 64, 128, 0.3);
+.como-jogar-container li strong {
+  color: #0044ff;
 }
 
-input.error,
-textarea.error {
-    border-color: #e74c3c;
-    background-color: #fceae9;
+.btn-voltar,
+.btn-secundario {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #0044ff;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-input.success,
-textarea.success {
-    border-color: #2ecc71;
-    background-color: #eafaf1;
-}
-
-
-.message {
-    font-size: 0.9rem;
-    margin-top: -0.8rem;
-    margin-bottom: 1rem;
-    color: #e74c3c;
-    font-weight: 600;
-}
-
-.message.success {
-    color: #2ecc71;
-}
-
-button {
-    background-color: #004080;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #003366;
+.btn-voltar:hover,
+.btn-secundario:hover {
+  background-color: #0037cc;
+  transform: scale(1.02);
 }
 
 
-button:disabled {
-    background-color: #7a9cc6;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
 
 footer {
   background-color: #202020; 
@@ -254,5 +218,3 @@ footer {
   text-align: center; 
   margin-top: 20px;
 }
-
-

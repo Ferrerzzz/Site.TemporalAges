@@ -20,6 +20,7 @@
       // Verifica se é o admin
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
+      
       let adminOptions = "";
       if (isAdmin) {
         adminOptions = `
@@ -30,6 +31,7 @@
         `;
       }
 
+
       dropdown.innerHTML = `
         <span class="nav-link">${user.gameTag}</span>
         <div class="dropdown-content">
@@ -39,6 +41,8 @@
           </div>
           <a href="#" onclick="logout()">Terminar Sessão</a>
           ${adminOptions}
+          <a href="editar_utilizador.php?tag=${encodeURIComponent(user.email)}">Editar os seus dados</a>
+
         </div>
       `;
     }

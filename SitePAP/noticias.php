@@ -28,6 +28,7 @@
           <hr style="margin: 6px 0;">
           <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
           <a href="adicionar_noticia.php">Adicionar Notícia</a>
+          <a href="eliminar_noticias.php">Eliminar Noticia</a>
         `;
       }
 
@@ -51,44 +52,48 @@
   }
 </script>
 
-<!-- NAVBAR -->
-<div class="navbar-container">
-  <div class="navbar">
-    <div class="nav-left">
-      <div class="logo">
-        <img src="imagens/logo.png" alt="temporalAges" width="60">
-      </div>
-      <div class="dropdown">
-        <span class="nav-link">Temporal Ages</span>
-        <div class="dropdown-content">
-          <a href="index.html">Visão geral</a>
-          <a href="comoJogar.html">Como jogar</a>
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="imagens/logo.png" alt="temporalAges" width="60">
         </div>
-      </div>
-      <a class="nav-link" href="personagens.html">Personagens</a>
-      <a class="nav-link" href="mapas.html">Mapas</a>
-      <a class="nav-link" href="noticias.php">Notícias</a>
-      <div class="dropdown">
-        <span class="nav-link">Suporte</span>
-        <div class="dropdown-content">
-          <a href="forum.php">Fóruns</a>
-          <a href="contacto.html">Contacte-nos</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="nav-right">
-      <div class="dropdown">
-        <span class="nav-link">Conta</span>
-        <div class="dropdown-content">
-          <a href="login.html">Login</a>
-          <a href="registo.php">Registo</a>
+        <div class="dropdown">
+          <span class="nav-link">Temporal Ages</span>
+          <div class="dropdown-content">
+            <a href="index.html">Visão geral</a>
+            <a href="comoJogar.html">Como jogar</a>
+          </div>
         </div>
+
+        <a class="nav-link" href="personagens.html">Personagens</a>
+        <a class="nav-link" href="mapas.html">Mapas</a>
+        <a class="nav-link" href="noticias.php">Notícias</a>
+
+        <div class="dropdown">
+          <span class="nav-link">Suporte</span>
+          <div class="dropdown-content">
+            <a href="forum.php">Fóruns</a>
+            <a href="contacto.html">Contacte-nos</a>
+          </div>
+        </div>
+
+
       </div>
-      <button class="btn-jogue">Jogar Agora</button>
+      <div class="nav-right">
+        <div class="dropdown">
+          <span class="nav-link">Conta</span>
+          <div class="dropdown-content">
+            <a href="login.html">Login</a>
+            <a href="registo.php">Registo</a>
+          </div>
+        </div>
+        <button class="btn-jogue">Jogar Agora</button>
+      </div>
     </div>
   </div>
-</div>
+
 
 
 
@@ -101,7 +106,7 @@
 <div class="news-grid">
 
   <div class="grid-item">
-    <img src="imagens/mapa.jpg" alt="Melhoramentos">
+    <img src="imagens/gajo1-removebg-preview.png" alt="Melhoramentos">
     <div class="grid-content">
       <h3>RETROSPECTIVA SEMANAL: Melhoramentos no Dungeon 2D</h3>
       <p>13 de jun.</p>
@@ -109,15 +114,15 @@
   </div>
 
   <div class="grid-item">
-    <img src="imagens/mapa2.jpg" alt="Mapa Egipto">
+    <img src="imagens/BossRoomEg.png" alt="Mapa Egipto">
     <div class="grid-content">
-      <h3>Nova Dungeon: Mistérios do Antigo Egipto</h3>
+      <h3>Nova Dungeon:Antigo Egito</h3>
       <p>6 de jun.</p>
     </div>
   </div>
 
   <div class="grid-item">
-    <img src="imagens/mapa5.jpg" alt="Mapa Grécia">
+    <img src="imagens/BossRoom.png" alt="Mapa Grécia">
     <div class="grid-content">
       <h3>Novas Mecânicas: Desafios Mitológicos da Grécia</h3>
       <p>30 de mai.</p>
@@ -125,9 +130,9 @@
   </div>
 
   <div class="grid-item">
-    <img src="imagens/mapa4.png" alt="Comunidade">
+    <img src="imagens/anubis-removebg-preview.png" alt="Comunidade">
     <div class="grid-content">
-      <h3>Contamos Contigo para Construir o Futuro Temporal</h3>
+      <h3>Caras novas no antigo egito</h3>
       <p>29 de mai.</p>
     </div>
   </div>

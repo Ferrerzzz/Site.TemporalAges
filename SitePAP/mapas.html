@@ -103,7 +103,7 @@
     </div>
     <div class="map-card" onclick="mostrarDetalhes('egito')">
       <img src="../SitePAP/imagens/tuntan.png" alt="Mapa Egipto">
-      <h3>Egipto</h3>
+      <h3>Egito</h3>
     </div>
   </div>
 
@@ -121,8 +121,8 @@ const dadosMapas = {
   grecia: [
     {
       imagem: "../SitePAP/imagens/SmallRoom.png",
-      titulo: "texto",
-      descricao: "texto.",
+      titulo: "Sala Pequena Grécia/Roma",
+      descricao: "Uma sala antiga com colunas, estátuas e símbolos clássicos. Inspira-se na mitologia e arquitetura da Grécia e Roma,Sala Pequena Grécia/Roma",
     },
     {
       imagem: "../SitePAP/imagens/LargeRoom.png",
@@ -138,8 +138,8 @@ const dadosMapas = {
   egito: [
     {
       imagem: "../SitePAP/imagens/BossRoomEg.png",
-      titulo: "texto",
-      descricao: "texto",
+      titulo: "Sala do Boss",
+      descricao: "Uma sala antiga no fundo da pirâmide, cheia de areia, estátuas e símbolos egípcios. Aqui o jogador enfrenta um guardião misterioso que protege os tesouros do faraó.",
     },
     {
       imagem: "../SitePAP/imagens/Entrance.png",
@@ -160,7 +160,7 @@ function mostrarDetalhes(mapa) {
                             
   const nomesMapas = {
     grecia: "Grécia / Roma",
-    egito: "Egipto",
+    egito: "Egito",
   };
 
   titulo.textContent = nomesMapas[mapa] || "Mapa";

@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="descricao">Descrição:</label>
     <textarea id="descricao" name="descricao" rows="6" required></textarea>
 
-    <label for="imagem">Imagem (obrigatória):</label>
+    <label for="imagem">Imagem</label>
     <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
     <button type="submit">Publicar</button>

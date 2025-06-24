@@ -1,19 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Jogar - Temporal Ages</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Jogar - Temporal Ages</title>
+  <link rel="stylesheet" href="css/comoJogar.css">
 </head>
 <body>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dados = localStorage.getItem("utilizadorLogado");
+
+    if (dados) {
+      const user = JSON.parse(dados);
+
+      const dropdown = document.querySelector(".nav-right .dropdown");
+      
+      // Verifica se é o admin
+      const isAdmin = user.gameTag.toLowerCase() === "admin";
+
+      let adminOptions = "";
+      if (isAdmin) {
+        adminOptions = `
+          <hr style="margin: 6px 0;">
+          <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
+          <a href="adicionar_noticia.php">Adicionar Notícia</a>
+          <a href="eliminar_noticias.php">Eliminar Noticia</a>
+        `;
+      }
+
+      dropdown.innerHTML = `
+        <span class="nav-link">${user.gameTag}</span>
+        <div class="dropdown-content">
+          <div style="padding: 12px 18px; font-weight: bold;">
+            ${user.gameTag}<br>
+            <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+          </div>
+          <a href="#" onclick="logout()">Terminar Sessão</a>
+          ${adminOptions}
+        </div>
+      `;
+    }
+  });
+
+  function logout() {
+    localStorage.removeItem("utilizadorLogado");
+    location.reload(); 
+  }
+</script>
+
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="imagens/logo.png" alt="temporalAges" width="60">
+        </div>
+
+        <div class="dropdown">
+          <span class="nav-link">Temporal Ages</span>
+          <div class="dropdown-content">
+            <a href="index.html">Visão geral</a>
+            <a href="comoJogar.html">Como jogar</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="personagens.html">Personagens</a>
+        <a class="nav-link" href="mapas.html">Mapas</a>
+        <a class="nav-link" href="noticias.php">Notícias</a>
+
+        <div class="dropdown">
+          <span class="nav-link">Suporte</span>
+          <div class="dropdown-content">
+            <a href="forum.php">Fóruns</a>
+            <a href="contacto.html">Contacte-nos</a>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="nav-right">
+        <div class="dropdown">
+          <span class="nav-link">Conta</span>
+          <div class="dropdown-content">
+            <a href="login.html">Login</a>
+            <a href="registo.php">Registo</a>
+          </div>
+        </div>
+        <button class="btn-jogue">Jogar Agora</button>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="conteudo">
+  <div class="como-jogar-container">
     <h1>Como Jogar - Temporal Ages</h1>
     <p>Bem-vindo ao guia de como jogar Temporal Ages! Aqui estão algumas instruções para te ajudar a começar:</p>
+
     <h2>Controles Básicos</h2>
     <ul>
-        <li><strong>W</strong> - Mover para cima</li>
-        <li><strong>A</strong> - Mover para a esquerda</li>
-        <li><strong>S</strong> - Mover para baixo</li>
-        <li><strong>D</strong> - Mover para a direita</li>
+      <li><strong>W</strong> - Mover para cima</li>
+      <li><strong>A</strong> - Mover para a esquerda</li>
+      <li><strong>S</strong> - Mover para baixo</li>
+      <li><strong>D</strong> - Mover para a direita</li>
+      <li><strong>RMB (Butão direito do rato)</strong> - Disparar</li>
+      <li><strong>LMB (Butão esquerdo do rato)</strong> - Rolar</li>
+      <li><strong>E</strong> - interagir com objetos</li>
+      <li><strong>1</strong> - 1º item do inventário</li>
+      <li><strong>2</strong> - 2º item do inventário</li>
+      <li><strong>3</strong> - 3º item do inventário</li>
+      <li><strong>4</strong> - 4º item do inventário</li>
+      <li><strong>5</strong> - 5º item do inventário</li>
     </ul>
+  </div>
+</div>
+
+
+    <footer id="sobre">
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>Sobre Nós</h3>
+              <p>Temporal Ages</p>
+              
+          </div>
+          
+          <div class="footer-section">
+              <h3>Ajuda</h3>
+              <ul>
+                  <li><a href="login.html"><b>Login</b></a></li>
+                  <li><a href="registo.php">Registo</a></li>
+                  <li><a href="conta.php">Conta</a></li>
+                  <li><a href="">Recuperar Palavra-Passe</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Redes Sociais</h3>
+              <ul>
+                  <li><a href="#" >Facebook</a><br></li>
+                  <li><a href="#" >Instagram</a><br></li>
+                  <li><a href="#" >Twitter</a><br></li>
+                  <li><a href="#" >LinkedIn</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-section">
+              <h3>Contate-nos</h3>
+              <p>Email: suporte@temporalages.gg</p>
+              <p>Telefone: 21 922 9500</p>
+              <p>Endereço: R. São Francisco Xavier 87</p>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <p>&copy; 2025. Todos os direitos reservados Temporal Ages.</p>
+      </div>
+  </footer>
+
 </body>
 </html>

@@ -8,31 +8,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $mensagem = $_POST["mensagem"];
+    
 
     $mail = new PHPMailer(true);
 
     try {
-        // Configuração do servidor SMTP (exemplo com Gmail)
+
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username = 'temporalages@gmail.com'; // <- substitui pelo teu email 
+        $mail->Username = 'temporalages@gmail.com'; 
         $mail->Password = 'evag pngt tvod jdbh';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        // Remetente e destinatário
+        
         $mail->setFrom('teuemail@gmail.com', 'Temporal Ages');
-        $mail->addAddress($email, $nome);  // Envia para o email indicado no formulário
+        $mail->addAddress($email, $nome);  
 
-        // Conteúdo do email
+
         $mail->isHTML(true);
         $mail->Subject = 'Recebemos o seu contacto!';
         $mail->Body    = "<p>Olá <strong>$nome</strong>,</p><p>Recebemos a sua mensagem:</p><blockquote>$mensagem</blockquote><p>Obrigado por nos contactar. Responderemos o mais breve possível.</p>";
 
         $mail->send();
 
-        // Mensagem de agradecimento no próprio PHP
+        
         echo "
             <html lang='pt-PT'>
             <head>

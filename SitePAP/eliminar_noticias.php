@@ -141,6 +141,7 @@
 }
 
 footer {
+
   background-color: #202020; 
   color: white; 
   padding: 20px 0; 
@@ -181,11 +182,57 @@ footer {
   margin-top: 20px;
 }
 
+
+
+
   </style>
 </head>
 <body>
 
-<div class="navbar-container">
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dados = localStorage.getItem("utilizadorLogado");
+
+    if (dados) {
+      const user = JSON.parse(dados);
+
+      const dropdown = document.querySelector(".nav-right .dropdown");
+      
+      // Verifica se é o admin
+      const isAdmin = user.gameTag.toLowerCase() === "admin";
+
+      let adminOptions = "";
+      if (isAdmin) {
+        adminOptions = `
+          <hr style="margin: 6px 0;">
+          <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
+          <a href="adicionar_noticia.php">Adicionar Notícia</a>
+          <a href="eliminar_noticias.php">Eliminar Noticia</a>
+        `;
+      }
+
+      dropdown.innerHTML = `
+        <span class="nav-link">${user.gameTag}</span>
+        <div class="dropdown-content">
+          <div style="padding: 12px 18px; font-weight: bold;">
+            ${user.gameTag}<br>
+            <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+          </div>
+          <a href="#" onclick="logout()">Terminar Sessão</a>
+          ${adminOptions}
+        </div>
+      `;
+    }
+  });
+
+  function logout() {
+    localStorage.removeItem("utilizadorLogado");
+    location.reload(); 
+  }
+</script>
+
+  <div class="navbar-container">
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
@@ -201,7 +248,7 @@ footer {
         </div>
 
         <a class="nav-link" href="personagens.html">Personagens</a>
-        <a class="nav-link" href="#">Mapas</a>
+        <a class="nav-link" href="mapas.html">Mapas</a>
         <a class="nav-link" href="noticias.php">Notícias</a>
 
         <div class="dropdown">
@@ -228,7 +275,7 @@ footer {
     </div>
   </div>
 
-<!-- Título -->
+
 <section class="section light-section">
     <br>
     <br>
@@ -238,7 +285,7 @@ footer {
   <div class="title-section">Eliminar Notícias</div>
 </section>
 
-<!-- Notícias da base de dados com botões de eliminar -->
+
 <section class="section blue-section">
   <div class="news-block">
     <?php
