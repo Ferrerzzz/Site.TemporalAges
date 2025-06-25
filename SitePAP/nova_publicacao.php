@@ -71,7 +71,7 @@
 
 <a href="forum.php">← Voltar ao Fórum</a>
 
-<!-- Move o script para aqui -->
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const userData = localStorage.getItem("utilizadorLogado");

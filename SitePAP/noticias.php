@@ -5,7 +5,7 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <title>Notícias - Dungeon 2D</title>
+  <title>Notícias</title>
   <link rel="stylesheet" href="css/forum.css">
   <link rel="stylesheet" href="css/noticias.css">
 </head>
@@ -19,9 +19,9 @@
 
       const dropdown = document.querySelector(".nav-right .dropdown");
       
-      // Verifica se é o admin
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
+      
       let adminOptions = "";
       if (isAdmin) {
         adminOptions = `
@@ -29,8 +29,10 @@
           <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
           <a href="adicionar_noticia.php">Adicionar Notícia</a>
           <a href="eliminar_noticias.php">Eliminar Noticia</a>
+          <a href="eliminar_post.php">Eliminar Post</a>
         `;
       }
+
 
       dropdown.innerHTML = `
         <span class="nav-link">${user.gameTag}</span>
@@ -41,6 +43,8 @@
           </div>
           <a href="#" onclick="logout()">Terminar Sessão</a>
           ${adminOptions}
+          <a href="editar_utilizador.php?tag=${encodeURIComponent(user.email)}">Editar os seus dados</a>
+
         </div>
       `;
     }
@@ -81,6 +85,7 @@
 
 
       </div>
+
       <div class="nav-right">
         <div class="dropdown">
           <span class="nav-link">Conta</span>
@@ -93,8 +98,6 @@
       </div>
     </div>
   </div>
-
-
 
 
 <section class="section light-section">

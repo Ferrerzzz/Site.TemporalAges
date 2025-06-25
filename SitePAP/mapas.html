@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Heróis - Overwatch</title>
+  <title>Mapas</title>
   <link rel="stylesheet" href="css/mapas.css">
   <style>
 
@@ -18,17 +18,20 @@
 
       const dropdown = document.querySelector(".nav-right .dropdown");
       
-    
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
+      
       let adminOptions = "";
       if (isAdmin) {
         adminOptions = `
           <hr style="margin: 6px 0;">
           <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
           <a href="adicionar_noticia.php">Adicionar Notícia</a>
+          <a href="eliminar_noticias.php">Eliminar Noticia</a>
+          <a href="eliminar_post.php">Eliminar Post</a>
         `;
       }
+
 
       dropdown.innerHTML = `
         <span class="nav-link">${user.gameTag}</span>
@@ -39,6 +42,8 @@
           </div>
           <a href="#" onclick="logout()">Terminar Sessão</a>
           ${adminOptions}
+          <a href="editar_utilizador.php?tag=${encodeURIComponent(user.email)}">Editar os seus dados</a>
+
         </div>
       `;
     }
@@ -49,7 +54,8 @@
     location.reload(); 
   }
 </script>
-    <div class="navbar-container">
+
+  <div class="navbar-container">
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
@@ -65,7 +71,7 @@
         </div>
 
         <a class="nav-link" href="personagens.html">Personagens</a>
-               <a class="nav-link" href="mapas.html">Mapas</a>
+        <a class="nav-link" href="mapas.html">Mapas</a>
         <a class="nav-link" href="noticias.php">Notícias</a>
 
         <div class="dropdown">
@@ -91,7 +97,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="map-header">
     <h1>MAPAS</h1>

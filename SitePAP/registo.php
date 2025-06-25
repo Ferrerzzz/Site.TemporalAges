@@ -10,16 +10,9 @@
    <div class="step active" id="step-1">
     <h1>Temporal Ages</h1>
     <p>Campo obrigatório</p>
-    <label for="pais">País</label>
-    <select id="pais" name="pais" required>
-      <option value="">Selecione</option>
-      <option value="portugal">Portugal</option>
-      <option value="brasil">Brasil</option>
-      <option value="outro">Outro...</option>
-    </select>
     <label for="data-nascimento">Data de nascimento</label>
     <input type="date" id="data-nascimento" name="data_nascimento" value="2000-12-12" required>
-    <p class="login">Já tem uma conta? <a href="#">Conecte-se</a></p>
+    <p class="login">Já tem uma conta? <a href="login.html">Conecte-se</a></p>
     <button type="button" onclick="nextStep()">Continuar</button>
   </div>
 
@@ -74,7 +67,6 @@
   <div class="green" id="dados-confirmacao">
    
   </div>
-  <p>Para gerenciar definições adicionais, visite suas configurações.</p>
 
   <form action="adicionar-registo-user.php" method="POST">
     <input type="hidden" id="final-email" name="email">

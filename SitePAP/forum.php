@@ -4,7 +4,7 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <title>Fórum Dungeon 2D</title>
+  <title>Fórum</title>
   <link rel="stylesheet" href="css/forum.css">
   
 </head>
@@ -20,14 +20,18 @@
       
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
+      
       let adminOptions = "";
       if (isAdmin) {
         adminOptions = `
           <hr style="margin: 6px 0;">
           <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
           <a href="adicionar_noticia.php">Adicionar Notícia</a>
+          <a href="eliminar_noticias.php">Eliminar Noticia</a>
+          <a href="eliminar_post.php">Eliminar Post</a>
         `;
       }
+
 
       dropdown.innerHTML = `
         <span class="nav-link">${user.gameTag}</span>
@@ -38,6 +42,8 @@
           </div>
           <a href="#" onclick="logout()">Terminar Sessão</a>
           ${adminOptions}
+          <a href="editar_utilizador.php?tag=${encodeURIComponent(user.email)}">Editar os seus dados</a>
+
         </div>
       `;
     }
@@ -49,8 +55,7 @@
   }
 </script>
 
-
-    <div class="navbar-container">
+  <div class="navbar-container">
     <div class="navbar">
       <div class="nav-left">
         <div class="logo">
@@ -92,6 +97,7 @@
       </div>
     </div>
   </div>
+
 <br>
 <br>
 <br>
@@ -100,7 +106,7 @@
 
 
   <header>
-    <h1>Fórum Dungeon 2D: Temporal Ages</h1>
+    <h1>Fórum Temporal Ages</h1>
   </header>
 
   <main>
