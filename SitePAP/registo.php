@@ -72,7 +72,6 @@
     <input type="hidden" id="final-email" name="email">
     <input type="hidden" id="final-senha" name="senha">
     <input type="hidden" id="final-battletag" name="battletag">
-    <input type="hidden" id="final-pais" name="pais">
     <input type="hidden" id="final-data" name="data_nascimento">
     <input type="hidden" id="final-nome" name="nome">
     <input type="hidden" id="final-sobrenome" name="sobrenome">
@@ -159,14 +158,12 @@ function nextStep() {
   const nome = document.getElementById("nome").value;
   const sobrenome = document.getElementById("sobrenome").value;
   battletag = document.getElementById("battletag").value;
-  pais = document.getElementById("pais").value;
   data_nascimento = document.getElementById("data-nascimento").value;
 
 
   document.getElementById("final-email").value = email;
   document.getElementById("final-senha").value = senha;
   document.getElementById("final-battletag").value = battletag;
-  document.getElementById("final-pais").value = pais;
   document.getElementById("final-data").value = data_nascimento;
   document.getElementById("final-nome").value = nome;
   document.getElementById("final-sobrenome").value = sobrenome;
