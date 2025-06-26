@@ -5,7 +5,7 @@ $con = ligaBD();
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"])) {
   $id = intval($_POST["id"]);
 
-  // Apagar a imagem se necessário (opcional)
+
   $res = $con->query("SELECT imagem FROM noticias WHERE id = $id");
   if ($row = $res->fetch_assoc()) {
     $imagem = $row["imagem"];

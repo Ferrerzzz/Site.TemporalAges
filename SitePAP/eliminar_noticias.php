@@ -2,11 +2,10 @@
 <?php $con = ligaBD(); ?>
 
 <?php
-  // Verifica se é admin
+
   session_start();
   $isAdmin = false;
 
-  // Simula a leitura de localStorage via script abaixo
   echo "<script>
     const dados = localStorage.getItem('utilizadorLogado');
     if (!dados || JSON.parse(dados).gameTag.toLowerCase() !== 'admin') {
@@ -199,7 +198,7 @@ footer {
 
       const dropdown = document.querySelector(".nav-right .dropdown");
       
-      // Verifica se é o admin
+
       const isAdmin = user.gameTag.toLowerCase() === "admin";
 
       let adminOptions = "";

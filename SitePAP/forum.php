@@ -168,7 +168,7 @@
     <label for="mensagem">Mensagem:</label><br>
     <textarea id="mensagem" name="mensagem" rows="5" cols="60" required></textarea><br><br>
 
-    <input type="hidden" id="autor" name="autor"> <!-- será preenchido por JS -->
+    <input type="hidden" id="autor" name="autor"> 
 
     <button type="submit">Publicar</button>
   </form>

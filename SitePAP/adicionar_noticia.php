@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $descricao = $_POST['descricao'];
   $data = date('Y-m-d');
 
-  // Verificar se foi enviada uma imagem
   if (!isset($_FILES['imagem']) || $_FILES['imagem']['error'] !== 0) {
     echo "<script>alert('É obrigatório selecionar uma imagem.'); window.history.back();</script>";
     exit;
@@ -126,19 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-decoration: underline;
     }
 
-    @media (max-width: 600px) {
-      form {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 22px;
-      }
-
-      button {
-        font-size: 14px;
-      }
-    }
+  
   </style>
 </head>
 <body>

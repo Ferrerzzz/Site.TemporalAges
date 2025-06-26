@@ -145,7 +145,7 @@
 
 </section>
 
-<!-- BLUE SECTION - Notícias dinâmicas -->
+
 <section class="section blue-section">
   <div class="news-block">
     <?php

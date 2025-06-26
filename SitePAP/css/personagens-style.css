@@ -244,7 +244,7 @@ color: #fff;
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto;
-  height: 320px; /* Altura fixa */
+  height: 320px;
   overflow: hidden;
 }
 

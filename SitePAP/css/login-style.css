@@ -35,7 +35,7 @@ body {
     transition: border 0.3s;
   }
   .login-box input:focus {
-    border: 1px solid #2f8be6; /* azul quando está selecionado */
+    border: 1px solid #2f8be6;
   }
 .error-message {
   color: #ffffff;
@@ -45,7 +45,7 @@ body {
   margin-left: 20px;
   background-color: #0b0c16f6;
   padding: 10px;
-  text-align: left; /* <-- Alinha o conteúdo à esquerda */
+  text-align: left; 
 }
 
 .error-message a{
