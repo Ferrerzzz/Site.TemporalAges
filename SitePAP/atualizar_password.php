@@ -11,11 +11,14 @@ if (!empty($_POST['email']) && !empty($_POST['nova_password'])) {
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
-        echo "Password atualizada com sucesso.";
+    echo "<script>alert('Password atualizada com sucesso.');</script>";
+    echo "<meta http-equiv=\"refresh\" content=\"5; url=index.html\">";
     } else {
-        echo "Erro ao atualizar a password.";
+        echo "<script>alert('Erro ao atualizar a password.');</script>";
+        echo "<meta http-equiv=\"refresh\" content=\"5; url=index.html\">";
     }
 } else {
-    echo "Dados incompletos.";
+    echo "<script>alert('Dados incompletos.');</script>";
+   
 }
 ?>

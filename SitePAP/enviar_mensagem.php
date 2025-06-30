@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = 587;
 
         
-        $mail->setFrom('teuemail@gmail.com', 'Temporal Ages');
+        $mail->setFrom('temporalages@gmail.com', 'Temporal Ages');
         $mail->addAddress($email, $nome);  
 
 
