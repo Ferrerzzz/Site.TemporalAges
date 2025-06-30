@@ -208,6 +208,7 @@ footer {
           <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
           <a href="adicionar_noticia.php">Adicionar Notícia</a>
           <a href="eliminar_noticias.php">Eliminar Noticia</a>
+          <a href="eliminar_post.php">Eliminar Post</a>
         `;
       }
 
