@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $mail->isHTML(true);
         $mail->Subject = 'Recebemos o seu contacto!';
-        $mail->Body    = "<p>Olá <strong>$nome</strong>,</p><p>Recebemos a sua mensagem:</p><blockquote>$mensagem</blockquote><p>Obrigado por nos contactar. Responderemos o mais breve possível.</p>";
+        $mail->Body    = "<p>Olá <strong>$nome</strong>,</p><p>Recebemos a sua mensagem:</p><blockquote>$mensagem</blockquote><p>Obrigado por nos contactar. Responderemos o mais breve possível.</p><p>Com os melhores cumprimentos,</p><p>Suporte TemporalAges</p><p>Assistência de Suporte aplicacional</p><p>R. S. Francisco Xavier, Alto do Forte, 2635-195 Rio de Mouro</p><p>Contacto Geral: +351 219 229 500</p><p>TemporalAges@gmail.com</p><p>www.TemporalAges.com</p>";
 
         $mail->send();
 

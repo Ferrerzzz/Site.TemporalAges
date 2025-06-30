@@ -1,6 +1,8 @@
 <?php
 include 'ligacaobd.php';
 
+date_default_timezone_set('Europe/Lisbon');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST['titulo'];
     $mensagem = $_POST['mensagem'];
