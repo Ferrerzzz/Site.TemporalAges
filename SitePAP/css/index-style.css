@@ -195,14 +195,15 @@ body {
 }
 
 .video1-section {
-  height:500px;
-  width: 70%;
+  width: 700px;
   overflow: hidden;
+  margin-left: 300px;
 }
 
 .video1-section video {
   width: 100%;
   display: block;
+
 }
 .Mapas {
   display: flex;
