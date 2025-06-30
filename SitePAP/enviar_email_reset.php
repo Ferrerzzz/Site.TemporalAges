@@ -20,7 +20,7 @@ try {
     $mail->addAddress($email);
     $token = bin2hex(random_bytes(16));
     $mail->isHTML(true);
-    $link = "http://localhost/Site.TemporalAges/Site.TemporalAges-1/SitePAP/reset_password.php?email=" . urlencode($email) . "&token=$token";
+    $link = "http://localhost/Site.TemporalAges/Site.TemporalAges/SitePAP/reset_password.php?email=" . urlencode($email) . "&token=$token";
     $mail->Subject = 'Redefinir Password';
     $mail->Body    = "Clique <a href='$link'>aqui</a> para redefinir a sua password.";
     $mail->token   = $token;

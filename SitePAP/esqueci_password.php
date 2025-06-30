@@ -53,6 +53,19 @@
     button:hover {
       background-color: #083b81;
     }
+
+        .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #0a4ba1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -64,5 +77,6 @@
       <button type="submit">Enviar link</button>
     </form>
   </div>
+  <a class="back-link" href="index.html">← Voltar</a>
 </body>
 </html>
