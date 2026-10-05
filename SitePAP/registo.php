@@ -7,6 +7,50 @@
 </head>
 <body>
 
+  <!-- Navbar -->
+  <div class="navbar-container">
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo">
+          <a href="index.html"><img src="imagens/logo.png" alt="temporalAges" width="60"></a>
+        </div>
+
+        <div class="dropdown">
+          <span class="nav-link">Temporal Ages</span>
+          <div class="dropdown-content">
+            <a href="index.html">Visão geral</a>
+            <a href="comoJogar.html">Como jogar</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="personagens.html">Personagens</a>
+        <a class="nav-link" href="mapas.html">Mapas</a>
+        <a class="nav-link" href="noticias.php">Notícias</a>
+
+        <div class="dropdown">
+          <span class="nav-link">Suporte</span>
+          <div class="dropdown-content">
+            <a href="forum.php">Fóruns</a>
+            <a href="contacto.html">Contacte-nos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="dropdown">
+          <span class="nav-link">Conta</span>
+          <div class="dropdown-content">
+            <a href="login.html">Login</a>
+            <a href="registo.php">Registo</a>
+          </div>
+        </div>
+        <a href="TemporalAges.rar" download>
+          <button class="btn-jogue">Jogar Agora</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
    <div class="step active" id="step-1">
     <h1>Temporal Ages</h1>
     <p>Campo obrigatório</p>
@@ -91,6 +135,50 @@
     </div>
   </div>
 
+
+  <!-- Navbar: se houver sessão iniciada, mostra o menu do utilizador -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dados = localStorage.getItem("utilizadorLogado");
+
+      if (dados) {
+        const user = JSON.parse(dados);
+
+        const dropdown = document.querySelector(".nav-right .dropdown");
+
+        const isAdmin = user.gameTag.toLowerCase() === "admin";
+
+        let adminOptions = "";
+        if (isAdmin) {
+          adminOptions = `
+            <hr style="margin: 6px 0;">
+            <a href="listagem_utilizadores.php">Listagem de Utilizadores</a>
+            <a href="adicionar_noticia.php">Adicionar Notícia</a>
+            <a href="eliminar_noticias.php">Eliminar Noticia</a>
+            <a href="eliminar_post.php">Eliminar Post</a>
+          `;
+        }
+
+        dropdown.innerHTML = `
+          <span class="nav-link">${user.gameTag}</span>
+          <div class="dropdown-content">
+            <div style="padding: 12px 18px; font-weight: bold;">
+              ${user.gameTag}<br>
+              <span style="font-size: 0.85em; font-weight: normal;">${user.email}</span>
+            </div>
+            <a href="#" onclick="logout()">Terminar Sessão</a>
+            ${adminOptions}
+            <a href="editar_utilizador.php?tag=${encodeURIComponent(user.email)}">Editar os seus dados</a>
+          </div>
+        `;
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("utilizadorLogado");
+      location.reload();
+    }
+  </script>
 
   <script>
     let currentStep = 1;

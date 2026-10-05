@@ -1,17 +1,57 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-body {
-    margin: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    background-color: #483C32 ;
+/* ==========================================================================
+   Temporal Ages – mapas.css
+   Melhorias visuais apenas. O layout (larguras, margens e posições) mantém-se.
+   ========================================================================== */
 
-  
+/* ---------- Variáveis (iguais às das outras páginas) ---------- */
+:root {
+  --azul: #1f56ff;
+  --azul-hover: #0f3fd6;
+  --azul-link: #4da3ff;
+  --laranja: #f39c12;
+  --areia: #ffc15e;
+  --castanho: #483c32;
+  --texto: #fff;
+  --cinza-hover: #eef2ff;
+
+  --fonte: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fonte-titulo: "Impact", "Arial Narrow Bold", sans-serif;
+
+  --sombra-forte: 0 12px 28px rgba(0, 0, 0, 0.22);
+
+  --transicao: 0.25s ease;
 }
+
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--fonte);
+  background-color: var(--castanho);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid var(--azul-link);
+  outline-offset: 3px;
+}
+
+/* ---------- Navbar ---------- */
 .navbar-container {
   padding: 25px;
   position: fixed;
@@ -20,28 +60,23 @@ body {
   right: 0;
   z-index: 10;
 }
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   color: #000;
-  border-radius: 12px;
-  height: 70px; 
-  padding: 0 60px; 
+  border-radius: 14px;
+  height: 70px;
+  padding: 0 60px;
+}
 
-  }
-
-.nav-link {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  padding: 5px 12px;
-  border-radius: 5px;
-  font-size: 1.18em; 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .nav-right {
@@ -50,113 +85,109 @@ body {
   gap: 20px;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-
+.nav-link {
+  text-decoration: none;
+  color: #1b1b1f;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 1.18em;
+  letter-spacing: 0.01em;
+  transition: background-color var(--transicao), color var(--transicao);
 }
+
+.nav-link:hover {
+  background-color: var(--cinza-hover);
+  color: var(--azul);
+}
+
 .dropdown {
   position: relative;
 }
+
+.dropdown .nav-link::after {
+  content: " ▼";
+  font-size: 0.6em;
+  margin-left: 6px;
+  color: #666;
+  transition: color var(--transicao);
+}
+
+.dropdown:hover .nav-link::after {
+  color: var(--azul);
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #fff;
   min-width: 150px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  box-shadow: var(--sombra-forte);
   z-index: 1;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
+  animation: dropdown-in 0.18s ease-out;
 }
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .dropdown-content a {
-    color: black;
-    padding: 12px 18px;
-    text-decoration: none;
-    display: block;
-    font-size: 1em; 
-  }
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-.nav-link {
+  color: #1b1b1f;
+  padding: 12px 18px;
   text-decoration: none;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  transition: background-color var(--transicao), color var(--transicao);
 }
 
-.nav-link:hover {
-    background-color: #dcdde1; 
-  }
+.dropdown-content a:hover {
+  background-color: var(--cinza-hover);
+  color: var(--azul);
+}
 
-.dropdown .nav-link::after {
-    content: " ▼";
-    font-size: 0.7em;
-    margin-left: 6px;
-    color: #333;
-  }
-.search-icon, .user-icon {
+.search-icon,
+.user-icon {
   font-size: 18px;
   cursor: pointer;
 }
-.btn-jogue {
-  background-color: #0044ff;
-  color: white;
+
+.btn-jogue,
+.navbar .btn-jogue-agora {
+  background-color: var(--azul);
+  color: var(--texto);
   padding: 8px 15px;
   border: none;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.12em;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(31, 86, 255, 0.35);
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
 }
 
-
-footer {  
-  background-color: #202020; 
-  color: white; 
-  padding: 20px 0; 
-  text-align: left; 
+.btn-jogue:hover,
+.navbar .btn-jogue-agora:hover {
+  background-color: var(--azul-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 86, 255, 0.45);
 }
 
-.footer-container {
-  display: flex; 
-  justify-content: space-around;
-  flex-wrap: wrap; 
-  max-width: 1200px;
-  margin: 0 auto; 
-  padding: 20px; 
-}
-
-.footer-section {
-  flex: 1; 
-  min-width: 200px; 
-  margin: 10px; 
-}
-
-.footer-section h3 {
-  border-bottom: 2px solid #f39c12;
-  padding-bottom: 10px; 
-}
-
-.footer-section a {
-  color: #f39c12; 
-  text-decoration: none; 
-}
-
-.footer-section a:hover {
-  text-decoration: underline; 
-}
-
-.footer-bottom {
-  text-align: center; 
-  margin-top: 20px;
-}
-
-
-
+/* ---------- Cabeçalho e cartões dos mapas ---------- */
 .map-header {
   padding: 60px 20px 30px;
   background: url('../imagens/fundoMapa.png');
@@ -167,13 +198,14 @@ footer {
 
 .map-header h1 {
   margin-top: 120px;
-  color: #fff;
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
   font-size: 54px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
   letter-spacing: 3px;
 }
 
-
 .map-grid {
   display: flex;
   flex-wrap: wrap;
@@ -184,53 +216,19 @@ footer {
 
 .map-card {
   background-color: #f2f2f2;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 300px;
-  transition: transform 0.3s;
+  cursor: pointer;
+  transition: transform var(--transicao), box-shadow var(--transicao);
 }
 
 .map-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-}
-
-
-
-.map-card h3 {
-  padding: 15px;
-  font-size: 1.4em;
-  text-align: center;
-  background-color: #fff;
-}
-
-.map-card:hover {
-  transform: scale(1.03);
-}
-    
-.map-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
-}
-
-.map-card {
-  background-color: #f2f2f2;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  width: 300px;
-  transition: transform 0.3s;
-}
-
-.map-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+  display: block;
 }
 
 .map-card h3 {
@@ -238,29 +236,48 @@ footer {
   font-size: 1.4em;
   text-align: center;
   background-color: #fff;
+  color: #1b1b1f;
+  letter-spacing: 0.02em;
+  transition: color var(--transicao);
 }
 
 .map-card:hover {
   transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
+.map-card:hover h3 {
+  color: var(--azul);
+}
 
+/* ---------- Detalhes do mapa ---------- */
 .map-details-container {
   margin: 60px auto;
   max-width: 1100px;
   display: flex;
   flex-direction: column;
   gap: 60px;
-  color:white;
+  color: var(--texto);
   text-align: center;
 }
-
 
 .map-detail {
   display: flex;
   gap: 30px;
   align-items: center;
   text-align: center;
+  animation: detalhe-in 0.4s ease-out;
+}
+
+@keyframes detalhe-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .map-detail.reverse {
@@ -271,9 +288,9 @@ footer {
   width: 100%;
   max-height: 500px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
-
 
 .map-info {
   width: 50%;
@@ -282,26 +299,94 @@ footer {
 .map-info h3 {
   margin-bottom: 10px;
   font-size: 24px;
+  color: var(--areia);
+  letter-spacing: 0.02em;
 }
 
 .map-info p {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.7;
+  opacity: 0.92;
 }
 
-#titulo-mapa{
-  margin-top: 50px;
-  color: #fff;
-  font-size: 54px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-  letter-spacing: 3px;
- text-align: center;
-}
+#titulo-mapa,
 .map-section-title {
   margin-top: 50px;
-  color: #fff;
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
   font-size: 54px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
   letter-spacing: 3px;
- text-align: center;
+  text-align: center;
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+  background-color: #1b1b1f;
+  color: #e8e8ec;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  line-height: 1.6;
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid var(--laranja);
+  padding-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section li {
+  margin-bottom: 4px;
+}
+
+.footer-section a {
+  color: var(--laranja);
+  text-decoration: none;
+  transition: color var(--transicao);
+}
+
+.footer-section a:hover {
+  color: #ffc15e;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #9a9aa5;
+}
+
+/* ---------- Acessibilidade: respeitar quem prefere menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
